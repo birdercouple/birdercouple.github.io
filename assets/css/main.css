@@ -1176,7 +1176,8 @@ h6 {
 .hero {
   width: 100%;
   min-height: 30vh;
-  background: #000;
+  /*background: #000;*/
+  background-image: url("../img/saffron_finch5.jpg");
   background-size: cover;
   position: relative;
   padding: 140px 0 60px 0;
@@ -1209,7 +1210,7 @@ h6 {
 }
 
 .hero p {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 30px;
   font-size: 18px;
 }
