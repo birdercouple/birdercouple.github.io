@@ -1176,8 +1176,8 @@ h6 {
 .hero {
   width: 100%;
   min-height: 30vh;
-  /*background: #000;*/
-  background-image: url("../img/finches.jpg");
+  background: #000;
+  background-image: url("../img/finches_hero.jpg");
   background-size: cover;
   position: relative;
   padding: 140px 0 60px 0;
@@ -1187,7 +1187,7 @@ h6 {
   margin: 0 0 10px 0;
   font-size: 38px;
   font-weight: 700;
-  color: #e8bffb;
+  color: #fff; /*#e8bffb;*/
   font-family: var(--font-secondary);
 }
 
