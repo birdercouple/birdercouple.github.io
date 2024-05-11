@@ -1177,7 +1177,7 @@ h6 {
   width: 100%;
   min-height: 30vh;
   /*background: #000;*/
-  background-image: url("../img/saffron_finch5.jpg");
+  background-image: url("../img/finches.jpg");
   background-size: cover;
   position: relative;
   padding: 140px 0 60px 0;
@@ -1187,7 +1187,7 @@ h6 {
   margin: 0 0 10px 0;
   font-size: 38px;
   font-weight: 700;
-  color: #fff;
+  color: #e8bffb;
   font-family: var(--font-secondary);
 }
 
