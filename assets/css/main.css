@@ -945,7 +945,7 @@ h6 {
 # Services Section
 --------------------------------------------------------------*/
 .services .service-item {
-  padding: 50px 30px;
+  padding: 5px 5px;
   transition: all ease-in-out 0.4s;
   background: var(--color-secondary);
   height: 100%;
@@ -989,7 +989,7 @@ h6 {
 .services .service-item p {
   line-height: 24px;
   font-size: 14px;
-  margin: 15px 0 0 0;
+  margin: 5px 0 0 0;
 }
 
 .services .service-item:hover:before {
@@ -1201,7 +1201,7 @@ h6 {
 .hero h2 span:before {
   content: "";
   position: absolute;
-  height: 50%;
+  height: 100%;
   bottom: 0;
   left: 0;
   right: 0;
