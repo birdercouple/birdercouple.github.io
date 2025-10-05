@@ -1173,6 +1173,57 @@ h6 {
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
+
+/* Hero section for durga puja photography */
+
+.hero_durgapuja {
+  width: 100%;
+  min-height: 40vh;
+  background: #000;
+  background-image: url("../img/durgapuja_hero.jpg");
+  background-size: cover;
+  position: relative;
+  padding: 140px 0 60px 0;
+}
+
+.hero_durgapuja h2 {
+  margin: 0 0 10px 0;
+  font-size: 38px;
+  font-weight: 700;
+  color: #fff; /*#e8bffb;*/
+  font-family: var(--font-secondary);
+}
+
+.hero_durgapuja h2 span {
+  position: relative;
+  bottom: -90px;
+  z-index: 1;
+  padding: 0 5px;
+  display: inline-block;
+}
+
+.hero_durgapuja h2 span:before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--color-primary);
+  z-index: -1;
+}
+
+.hero_durgapuja p {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 30px;
+  font-size: 18px;
+  position: relative;
+  top: 20px;
+}
+
+
+/* Hero section for bird photography */
+
 .hero {
   width: 100%;
   min-height: 30vh;
