@@ -158,6 +158,22 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /**
+   * Mark portrait gallery images so CSS can give them a taller aspect ratio
+   */
+  document.querySelectorAll('.gallery .gallery-item img').forEach(img => {
+    const mark = () => {
+      if (img.naturalHeight > img.naturalWidth) {
+        img.closest('.gallery-item').classList.add('gallery-item--portrait');
+      }
+    };
+    if (img.complete) {
+      mark();
+    } else {
+      img.addEventListener('load', mark);
+    }
+  });
+
+  /**
    * Animation on scroll function and init
    */
   function aos_init() {
