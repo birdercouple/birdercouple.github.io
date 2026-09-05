@@ -297,7 +297,6 @@ h6 {
   padding: 18px 0;
   background-color: rgba(8, 8, 8, 0.95);
   border-bottom: 1px solid rgba(200, 149, 60, 0.12);
-  backdrop-filter: blur(8px);
 }
 
 .header .logo {
@@ -1496,6 +1495,17 @@ h6 {
   height: 100%;
   object-fit: cover;
   object-position: 30% center;
+}
+
+@media (max-width: 991px) {
+  .hero_kumartuli .hero-inset {
+    top: auto;
+    bottom: 16px;
+    right: 16px;
+    transform: none;
+    width: 110px;
+    border-width: 3px;
+  }
 }
 
 /* Hero section for bird photography (subpages) */
