@@ -809,7 +809,13 @@ h6 {
 }
 
 .gallery .gallery-item.gallery-item--portrait {
-  aspect-ratio: 3 / 4;
+  /* Matches the common 16:9 (9:16 portrait) shot so most photos need no letterboxing */
+  aspect-ratio: 9 / 16;
+}
+
+/* Show the full photo (no cropping) for the mixed-ratio Kumortuli portrait shots */
+.gallery .gallery-item--portrait img {
+  object-fit: contain;
 }
 
 .gallery .gallery-item img {
@@ -1399,6 +1405,99 @@ h6 {
   text-shadow: 0 1px 6px rgba(0,0,0,0.6);
 }
 
+/* Hero section for kumartuli photography */
+.hero_kumartuli {
+  width: 100%;
+  min-height: 55vh;
+  background: #000;
+  background-image: url("../img/kumartuli_hero.jpg");
+  background-size: cover;
+  background-position: center 30%;
+  position: relative;
+  padding: 140px 0 80px 0;
+  display: flex;
+  align-items: center;
+}
+
+.hero_kumartuli::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.45) 0%,
+    rgba(0,0,0,0.2) 50%,
+    rgba(0,0,0,0.65) 100%
+  );
+}
+
+.hero_kumartuli .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero_kumartuli h2 {
+  margin: 0 0 12px 0;
+  font-size: 52px;
+  font-weight: 400;
+  color: #fff;
+  font-family: var(--font-secondary);
+  font-style: italic;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+}
+
+.hero_kumartuli h2 span {
+  position: relative;
+  z-index: 1;
+  padding: 0 5px;
+  display: inline-block;
+}
+
+.hero_kumartuli h2 span:before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--color-primary);
+  opacity: 0.85;
+  z-index: -1;
+}
+
+.hero_kumartuli p {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 30px;
+  font-size: 16px;
+  font-family: var(--font-primary);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+}
+
+/* Inset photo shown beside the Kumortuli hero title */
+.hero_kumartuli .hero-inset {
+  position: absolute;
+  top: 50%;
+  right: 4%;
+  transform: translateY(-50%);
+  width: 300px;
+  aspect-ratio: 1 / 1;
+  border: 4px solid var(--color-primary);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.hero_kumartuli .hero-inset img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 30% center;
+}
+
 /* Hero section for bird photography (subpages) */
 .hero {
   width: 100%;
@@ -1490,12 +1589,14 @@ h6 {
 
 @media (max-width: 768px) {
   .hero h2,
-  .hero_durgapuja h2 {
+  .hero_durgapuja h2,
+  .hero_kumartuli h2 {
     font-size: 34px;
   }
 
   .hero,
-  .hero_durgapuja {
+  .hero_durgapuja,
+  .hero_kumartuli {
     min-height: 38vh;
   }
 }
