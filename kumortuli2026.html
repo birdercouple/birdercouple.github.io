@@ -27,6 +27,21 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/main.css?v=2" rel="stylesheet">
 
+  <!-- Experimental: 3 photos per row instead of 4 on desktop, same photo
+       size as before, just wider gaps (page-scoped, not in main.css) -->
+  <style>
+    @media (min-width: 1200px) {
+      #gallery .gallery-item {
+        max-width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+        /* Percentage vertical margins are computed against the containing
+           block's width, so this lines up with the 25% horizontal gap above */
+        margin-bottom: 25%;
+      }
+    }
+  </style>
+
   <!-- =======================================================
   * Template Name: PhotoFolio
   * Template URL: https://bootstrapmade.com/photofolio-bootstrap-photography-website-template/
@@ -111,7 +126,7 @@
     <section id="gallery" class="gallery">
       <div class="container-fluid">
                 <div class="row gy-4 justify-content-center mb-4">
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IMG_4412.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -123,7 +138,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IMG_4434.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -135,7 +150,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IMG_4396.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -147,7 +162,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IMG_4401.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -159,7 +174,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IMG_4368.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -171,7 +186,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IMG_4394.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -183,7 +198,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IMG_4438.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -195,7 +210,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IMG_4456.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -207,7 +222,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IMG_4457.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -219,7 +234,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IMG_4470.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -231,7 +246,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IS0A1470.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -243,7 +258,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IS0A1472.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -258,7 +273,7 @@
         </div>
 
 <div class="row gy-4 justify-content-center mb-4">
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100">
               <img src="assets/img/misc/kumortuli2026/IMG_4391.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -270,7 +285,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100">
               <img src="assets/img/misc/kumortuli2026/IMG_4441.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -282,7 +297,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100">
               <img src="assets/img/misc/kumortuli2026/IMG_4477.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -294,7 +309,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100">
               <img src="assets/img/misc/kumortuli2026/IS0A1449.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -306,7 +321,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100">
               <img src="assets/img/misc/kumortuli2026/IS0A1492.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -318,7 +333,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100">
               <img src="assets/img/misc/kumortuli2026/IS0A1515.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -330,7 +345,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100">
               <img src="assets/img/misc/kumortuli2026/IS0A1522.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -342,7 +357,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100">
               <img src="assets/img/misc/kumortuli2026/IS0A1537.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -354,7 +369,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100">
               <img src="assets/img/misc/kumortuli2026/IS0A1543.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -366,7 +381,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100">
               <img src="assets/img/misc/kumortuli2026/IS0A1545.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -378,7 +393,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100">
               <img src="assets/img/misc/kumortuli2026/IS0A1577.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -390,7 +405,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100">
               <img src="assets/img/misc/kumortuli2026/IS0A1580.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -405,7 +420,7 @@
         </div>
 
                         <div class="row gy-4 justify-content-center mb-4">
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IMG_4371.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -417,7 +432,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IMG_4377.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -429,7 +444,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IMG_4388.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -441,7 +456,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IMG_4390.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -453,7 +468,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IMG_4399.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -465,7 +480,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IMG_4405.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -477,7 +492,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IMG_4407.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -489,7 +504,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IMG_4411.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -501,7 +516,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IMG_4415.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -513,7 +528,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IMG_4419.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -525,7 +540,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IMG_4422.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -537,7 +552,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IMG_4423.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -549,7 +564,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IMG_4424.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -561,7 +576,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IMG_4426.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -573,7 +588,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IMG_4427.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -585,7 +600,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IMG_4460.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -597,7 +612,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IMG_4471.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -609,7 +624,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IMG_4474.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -621,7 +636,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IS0A1437.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -633,7 +648,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IS0A1461.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -645,7 +660,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IS0A1464.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -657,7 +672,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IS0A1469.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -669,7 +684,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IS0A1531.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -681,7 +696,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IS0A1548.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -693,7 +708,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IS0A1567.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -705,7 +720,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IS0A1571.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -717,7 +732,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IS0A1544.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -732,7 +747,7 @@
         </div>
 
         <div class="row gy-4 justify-content-center mb-4">
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100">
               <img src="assets/img/misc/kumortuli2026/IMG_4400.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -744,7 +759,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100">
               <img src="assets/img/misc/kumortuli2026/IMG_4410.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -759,7 +774,7 @@
         </div>
 
         <div class="row gy-4 justify-content-center mb-4">
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IMG_4395.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
@@ -771,7 +786,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="gallery-item h-100 gallery-item--portrait">
               <img src="assets/img/misc/kumortuli2026/IMG_4397.jpg" class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
