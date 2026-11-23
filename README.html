@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Birder Couple — README</title>
+  <style>
+    body {
+      max-width: 860px;
+      margin: 40px auto;
+      padding: 0 24px 60px;
+      font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      color: #24292f;
+      background: #fff;
+    }
+    h1 { font-size: 30px; margin-bottom: 4px; }
+    h2 { font-size: 22px; margin-top: 40px; padding-bottom: 6px; border-bottom: 1px solid #d8dee4; }
+    h3 { font-size: 18px; margin-top: 28px; }
+    a { color: #0969da; }
+    code {
+      font: 13.5px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+      background: #f2f4f6;
+      padding: 2px 5px;
+      border-radius: 4px;
+    }
+    pre {
+      background: #f6f8fa;
+      border: 1px solid #d8dee4;
+      border-radius: 6px;
+      padding: 14px 16px;
+      overflow-x: auto;
+    }
+    pre code { background: none; padding: 0; }
+    table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+    th, td { border: 1px solid #d8dee4; padding: 8px 12px; text-align: left; vertical-align: top; }
+    th { background: #f6f8fa; }
+    li { margin: 4px 0; }
+    .lead { color: #57606a; margin-top: 0; }
+    .note { background: #fff8e5; border-left: 4px solid #d4a72c; padding: 10px 14px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+
+<h1>Birder Couple</h1>
+<p class="lead">We are Birder Couple, two inspired souls sharing our joys of bird watching from around the world.</p>
+<p>
+  Website: <a href="https://birdercouple.github.io">https://birdercouple.github.io</a><br>
+  Instagram: <a href="https://www.instagram.com/birdphotographie">https://www.instagram.com/birdphotographie</a>
+</p>
+
+<h2>How the site is organised</h2>
+<table>
+  <tr><th>Page</th><th>What it shows</th></tr>
+  <tr><td><code>index.html</code></td><td>Home page: a curated selection of our favourite photos</td></tr>
+  <tr><td><code>gallery.html</code></td><td>Overview of the bird groups, one card per group</td></tr>
+  <tr><td><code>raptors.html</code>, <code>hummingbirds.html</code>, <code>waders.html</code>, <code>waterbirds.html</code>,
+      <code>woodpeckers.html</code>, <code>corvids.html</code>, <code>doves-parrots.html</code>, <code>finches.html</code>,
+      <code>orioles.html</code>, <code>songbirds.html</code></td><td>One page per bird group, photos grouped by species</td></tr>
+  <tr><td><code>species.html</code></td><td>Every species A–Z</td></tr>
+  <tr><td><code>about.html</code>, <code>catalog.html</code>, <code>durgapuja2025.html</code>, <code>kumortuli2026.html</code></td><td>Hand-written pages</td></tr>
+</table>
+
+<p>All the bird photo pages are <strong>generated</strong> from one data file, <code>assets/data/photos.json</code>,
+by <code>scripts/build_site.py</code>.</p>
+<p class="note">Don't edit the generated pages by hand: the next build overwrites them. On <code>index.html</code> only
+the photo grid and the menu are generated; the rest of that page can be edited normally. The top menu is also
+refreshed on the hand-written pages.</p>
+<p>Photos live in <code>assets/img/gallery/&lt;species&gt;/</code>, e.g.
+<code>assets/img/gallery/greater-coucal/greater_coucal5.jpg</code>.</p>
+
+<h2>Adding new photos</h2>
+<p>Requires a Mac (the script uses the built-in <code>sips</code> and <code>mdls</code> tools) and Python 3.</p>
+<ol>
+  <li>Name each photo after the species plus a number, the way existing files are named:
+      <code>greater_coucal8.jpg</code>, <code>black_kite7.jpg</code>. Pick the next unused number for that species.</li>
+  <li>In Terminal, from the repository folder, run:</li>
+</ol>
+<pre><code>python3 scripts/add_photos.py ~/path/to/greater_coucal8.jpg ~/path/to/black_kite7.jpg \
+    --location "Rabindra Sarobar, Kolkata, India" --home</code></pre>
+
+<p>For each photo the script:</p>
+<ol>
+  <li>works out the species from the file name (<code>greater_coucal8.jpg</code> → Greater Coucal);</li>
+  <li>resizes it to 1600&nbsp;px on the long edge and saves it in the species folder (it never overwrites an existing photo);</li>
+  <li>writes the caption as species, location and month/year, e.g.
+      “Greater Coucal, Rabindra Sarobar, Kolkata, India, Nov 2026” (the date comes from the photo's capture date);</li>
+  <li>with <code>--home</code>, adds the photo to the top of the home page (portraits go to the portrait block at the bottom, uncropped);</li>
+  <li>rebuilds every page: the group page, <code>species.html</code>, the overview counts and the home page.</li>
+</ol>
+
+<h3>Options</h3>
+<table>
+  <tr><th>Option</th><th>What it does</th></tr>
+  <tr><td><code>--location "..."</code></td><td>Place to put in the caption. Leave it out to caption with just species and date.</td></tr>
+  <tr><td><code>--home</code></td><td>Also feature the photos on the home page.</td></tr>
+  <tr><td><code>--group &lt;group&gt;</code></td><td>Required for the <strong>first photo of a new species</strong>: which bird group it belongs to.
+      Without it the script stops and lists the group names: <code>raptors</code>, <code>hummingbirds</code>, <code>waders</code>,
+      <code>waterbirds</code>, <code>woodpeckers</code>, <code>corvids</code>, <code>doves-parrots</code>, <code>finches</code>,
+      <code>orioles</code>, <code>songbirds</code>.</td></tr>
+  <tr><td><code>--name "..."</code></td><td>Display name for a new species, when the file name can't spell it, e.g.
+      <code>--name "Blyth's Paradise Flycatcher"</code>.</td></tr>
+  <tr><td><code>--dry-run</code></td><td>Show where each photo would go and its caption, without changing anything.</td></tr>
+</table>
+
+<p>Example for a new species:</p>
+<pre><code>python3 scripts/add_photos.py ~/path/to/blyth_paradise_flycatcher3.jpg \
+    --location "Rabindra Sarobar, Kolkata, India" \
+    --group songbirds --name "Blyth's Paradise Flycatcher"</code></pre>
+
+<h2>Fine-tuning by hand</h2>
+<p>Edit <code>assets/data/photos.json</code>, then rebuild:</p>
+<pre><code>python3 scripts/build_site.py</code></pre>
+<p>What you can change there:</p>
+<ul>
+  <li><strong>Captions</strong>: the <code>caption</code> of a photo in <code>photos</code>.</li>
+  <li><strong>Crop of a portrait photo</strong>: on the group pages and <code>species.html</code>, every tile is 4:3, so portrait
+      photos are cropped. Add <code>"crop": "12%"</code> to a photo to move the visible part toward the top (lower % = higher up)
+      so the bird's head stays in view. The full photo always opens when clicked.</li>
+  <li><strong>Home page</strong>: the <code>home</code> list, in display order. A plain file name shows portraits full size in the
+      portrait block at the bottom; <code>{"file": "...", "fill": true}</code> crops a portrait to 4:3 among the landscape photos at the top.</li>
+  <li><strong>Bird groups</strong>: the <code>groups</code> list sets the group order, titles and descriptions. Add
+      <code>"cover": "&lt;species&gt;/&lt;file&gt;.jpg"</code> to choose the photo on a group's overview card (otherwise the
+      first landscape photo featured on the home page is used).</li>
+  <li><strong>Moving a species to another group</strong>: change its <code>group</code> in <code>species</code>.</li>
+</ul>
+<p>If a photo is in a species folder but missing from <code>photos.json</code>, the build still publishes it (captioned with
+just the species name) and prints a note, so nothing silently disappears.</p>
+
+</body>
+</html>

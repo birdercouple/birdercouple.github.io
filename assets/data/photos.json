@@ -1,0 +1,1932 @@
+{
+  "_readme": [
+    "Single source of truth for the bird photo pages. Easiest way to add photos: python3 scripts/add_photos.py PHOTO... --location \"...\" [--home]  (see that script for details). After editing this file by hand, run:  python3 scripts/build_site.py",
+    "photos: one entry per image under assets/img/gallery/<species-slug>/. 'crop' (optional) is the vertical",
+    "  object-position used when a portrait photo is cropped into a 4:3 tile, e.g. \"12%\" keeps the top in view.",
+    "home: ordered list of photos on index.html. Use {\"file\": ..., \"fill\": true} to crop a portrait to 4:3",
+    "  in the top block; other portraits are shown full-size in the portrait block at the bottom.",
+    "species: maps each species folder to its display name and group. groups: order, titles and blurbs of",
+    "  the bird-group pages (optional 'cover' = photo used on the gallery.html overview card)."
+  ],
+  "groups": [
+    {
+      "slug": "raptors",
+      "title": "Raptors & Owls",
+      "blurb": "Eagles, kites, hawks, falcons, vultures and owls."
+    },
+    {
+      "slug": "hummingbirds",
+      "title": "Hummingbirds & Sunbirds",
+      "blurb": "Tiny, iridescent nectar feeders."
+    },
+    {
+      "slug": "waders",
+      "title": "Herons, Egrets & Waders",
+      "blurb": "Long-legged birds of marshes, shores and shallow water."
+    },
+    {
+      "slug": "waterbirds",
+      "title": "Ducks, Geese & Seabirds",
+      "blurb": "Swimmers and divers: ducks, geese, pelicans, cormorants, gulls and terns."
+    },
+    {
+      "slug": "woodpeckers",
+      "title": "Woodpeckers, Barbets & Kingfishers",
+      "blurb": "Tree-drummers, colourful barbets and sharp-billed fishers."
+    },
+    {
+      "slug": "corvids",
+      "title": "Crows, Jays & Treepies",
+      "blurb": "Clever, bold members of the crow family."
+    },
+    {
+      "slug": "doves-parrots",
+      "title": "Doves, Parrots, Cuckoos & Gamebirds",
+      "blurb": "Pigeons and doves, parakeets, cuckoos, peafowl, quail and turkeys."
+    },
+    {
+      "slug": "finches",
+      "title": "Finches, Sparrows & Cardinals",
+      "blurb": "Seed-eaters of gardens, grasslands and hedgerows."
+    },
+    {
+      "slug": "orioles",
+      "title": "Orioles, Blackbirds & Starlings",
+      "blurb": "Bright orioles, blackbirds, meadowlarks, starlings and mynas."
+    },
+    {
+      "slug": "songbirds",
+      "title": "Flycatchers, Thrushes & Songbirds",
+      "blurb": "Bluebirds, robins, flycatchers, wrens, warblers and other small songbirds."
+    }
+  ],
+  "species": {
+    "bald-eagle": {
+      "name": "Bald Eagle",
+      "group": "raptors"
+    },
+    "golden-eagle": {
+      "name": "Golden Eagle",
+      "group": "raptors"
+    },
+    "black-kite": {
+      "name": "Black Kite",
+      "group": "raptors"
+    },
+    "white-tailed-kite": {
+      "name": "White-Tailed Kite",
+      "group": "raptors"
+    },
+    "red-tailed-hawk": {
+      "name": "Red-Tailed Hawk",
+      "group": "raptors"
+    },
+    "dark-morph-red-tailed-hawk": {
+      "name": "Dark Morph Red-Tailed Hawk",
+      "group": "raptors"
+    },
+    "red-shouldered-hawk": {
+      "name": "Red-Shouldered Hawk",
+      "group": "raptors"
+    },
+    "swainsons-hawk": {
+      "name": "Swainson's Hawk",
+      "group": "raptors"
+    },
+    "peregrine-falcon": {
+      "name": "Peregrine Falcon",
+      "group": "raptors"
+    },
+    "turkey-vulture": {
+      "name": "Turkey Vulture",
+      "group": "raptors"
+    },
+    "great-horned-owl": {
+      "name": "Great Horned Owl",
+      "group": "raptors"
+    },
+    "snowy-owl": {
+      "name": "Snowy Owl",
+      "group": "raptors"
+    },
+    "spotted-owlet": {
+      "name": "Spotted Owlet",
+      "group": "raptors"
+    },
+    "annas-hummingbird": {
+      "name": "Anna's Hummingbird",
+      "group": "hummingbirds"
+    },
+    "allens-hummingbird": {
+      "name": "Allen's Hummingbird",
+      "group": "hummingbirds"
+    },
+    "purple-sunbird": {
+      "name": "Purple Sunbird",
+      "group": "hummingbirds"
+    },
+    "great-blue-heron": {
+      "name": "Great Blue Heron",
+      "group": "waders"
+    },
+    "grey-heron": {
+      "name": "Grey Heron",
+      "group": "waders"
+    },
+    "indian-pond-heron": {
+      "name": "Indian Pond-Heron",
+      "group": "waders"
+    },
+    "black-crowned-night-heron": {
+      "name": "Black-Crowned Night-Heron",
+      "group": "waders"
+    },
+    "great-egret": {
+      "name": "Great Egret",
+      "group": "waders"
+    },
+    "medium-egret": {
+      "name": "Medium Egret",
+      "group": "waders"
+    },
+    "snowy-egret": {
+      "name": "Snowy Egret",
+      "group": "waders"
+    },
+    "painted-stork": {
+      "name": "Painted Stork",
+      "group": "waders"
+    },
+    "sandhill-crane": {
+      "name": "Sandhill Crane",
+      "group": "waders"
+    },
+    "american-avocet": {
+      "name": "American Avocet",
+      "group": "waders"
+    },
+    "lesser-yellowlegs": {
+      "name": "Lesser Yellowlegs",
+      "group": "waders"
+    },
+    "pacific-golden-plover": {
+      "name": "Pacific Golden-Plover",
+      "group": "waders"
+    },
+    "bronze-winged-jacana": {
+      "name": "Bronze-winged Jacana",
+      "group": "waders"
+    },
+    "white-breasted-waterhen": {
+      "name": "White-Breasted Waterhen",
+      "group": "waders"
+    },
+    "mallard": {
+      "name": "Mallard",
+      "group": "waterbirds"
+    },
+    "muscovy-duck": {
+      "name": "Muscovy Duck",
+      "group": "waterbirds"
+    },
+    "lesser-whistling-duck": {
+      "name": "Lesser Whistling-Duck",
+      "group": "waterbirds"
+    },
+    "canada-goose": {
+      "name": "Canada Goose",
+      "group": "waterbirds"
+    },
+    "snow-goose": {
+      "name": "Snow Goose",
+      "group": "waterbirds"
+    },
+    "brown-pelican": {
+      "name": "Brown Pelican",
+      "group": "waterbirds"
+    },
+    "american-white-pelican": {
+      "name": "American White Pelican",
+      "group": "waterbirds"
+    },
+    "double-crested-cormorant": {
+      "name": "Double-Crested Cormorant",
+      "group": "waterbirds"
+    },
+    "little-cormorant": {
+      "name": "Little Cormorant",
+      "group": "waterbirds"
+    },
+    "oriental-darter": {
+      "name": "Oriental Darter",
+      "group": "waterbirds"
+    },
+    "western-gull": {
+      "name": "Western Gull",
+      "group": "waterbirds"
+    },
+    "forsters-tern": {
+      "name": "Forster's Tern",
+      "group": "waterbirds"
+    },
+    "american-coot": {
+      "name": "American Coot",
+      "group": "waterbirds"
+    },
+    "common-gallinule": {
+      "name": "Common Gallinule",
+      "group": "waterbirds"
+    },
+    "acorn-woodpecker": {
+      "name": "Acorn Woodpecker",
+      "group": "woodpeckers"
+    },
+    "rufous-woodpecker": {
+      "name": "Rufous Woodpecker",
+      "group": "woodpeckers"
+    },
+    "northern-flicker": {
+      "name": "Northern Flicker",
+      "group": "woodpeckers"
+    },
+    "black-rumped-flameback": {
+      "name": "Black-Rumped Flameback",
+      "group": "woodpeckers"
+    },
+    "blue-throated-barbet": {
+      "name": "Blue-Throated Barbet",
+      "group": "woodpeckers"
+    },
+    "lineated-barbet": {
+      "name": "Lineated Barbet",
+      "group": "woodpeckers"
+    },
+    "coppersmith-barbet": {
+      "name": "Coppersmith Barbet",
+      "group": "woodpeckers"
+    },
+    "white-throated-kingfisher": {
+      "name": "White-Throated Kingfisher",
+      "group": "woodpeckers"
+    },
+    "stork-billed-kingfisher": {
+      "name": "Stork-Billed Kingfisher",
+      "group": "woodpeckers"
+    },
+    "green-bee-eater": {
+      "name": "Green Bee-Eater",
+      "group": "woodpeckers"
+    },
+    "american-crow": {
+      "name": "American Crow",
+      "group": "corvids"
+    },
+    "house-crow": {
+      "name": "House Crow",
+      "group": "corvids"
+    },
+    "common-raven": {
+      "name": "Common Raven",
+      "group": "corvids"
+    },
+    "california-scrub-jay": {
+      "name": "California Scrub-Jay",
+      "group": "corvids"
+    },
+    "stellers-jay": {
+      "name": "Steller's Jay",
+      "group": "corvids"
+    },
+    "yellow-billed-magpie": {
+      "name": "Yellow-Billed Magpie",
+      "group": "corvids"
+    },
+    "rufous-treepie": {
+      "name": "Rufous Treepie",
+      "group": "corvids"
+    },
+    "rock-dove": {
+      "name": "Rock Dove",
+      "group": "doves-parrots"
+    },
+    "rock-pigeon": {
+      "name": "Rock Pigeon",
+      "group": "doves-parrots"
+    },
+    "mourning-dove": {
+      "name": "Mourning Dove",
+      "group": "doves-parrots"
+    },
+    "eurasian-collared-dove": {
+      "name": "Eurasian Collared Dove",
+      "group": "doves-parrots"
+    },
+    "spotted-dove": {
+      "name": "Spotted Dove",
+      "group": "doves-parrots"
+    },
+    "zebra-dove": {
+      "name": "Zebra Dove",
+      "group": "doves-parrots"
+    },
+    "yellow-footed-green-pigeon": {
+      "name": "Yellow-Footed Green Pigeon",
+      "group": "doves-parrots"
+    },
+    "rose-ringed-parakeet": {
+      "name": "Rose-Ringed Parakeet",
+      "group": "doves-parrots"
+    },
+    "asian-koel": {
+      "name": "Asian Koel",
+      "group": "doves-parrots"
+    },
+    "greater-coucal": {
+      "name": "Greater Coucal",
+      "group": "doves-parrots"
+    },
+    "indian-peafowl": {
+      "name": "Indian Peafowl",
+      "group": "doves-parrots"
+    },
+    "wild-turkey": {
+      "name": "Wild Turkey",
+      "group": "doves-parrots"
+    },
+    "california-quail": {
+      "name": "California Quail",
+      "group": "doves-parrots"
+    },
+    "gambels-quail": {
+      "name": "Gambel's Quail",
+      "group": "doves-parrots"
+    },
+    "feral-rooster": {
+      "name": "Feral Rooster",
+      "group": "doves-parrots"
+    },
+    "american-goldfinch": {
+      "name": "American Goldfinch",
+      "group": "finches"
+    },
+    "lesser-goldfinch": {
+      "name": "Lesser Goldfinch",
+      "group": "finches"
+    },
+    "house-finch": {
+      "name": "House Finch",
+      "group": "finches"
+    },
+    "saffron-finch": {
+      "name": "Saffron Finch",
+      "group": "finches"
+    },
+    "java-sparrow": {
+      "name": "Java Sparrow",
+      "group": "finches"
+    },
+    "house-sparrow": {
+      "name": "House Sparrow",
+      "group": "finches"
+    },
+    "fox-sparrow": {
+      "name": "Fox Sparrow",
+      "group": "finches"
+    },
+    "golden-crowned-sparrow": {
+      "name": "Golden-Crowned Sparrow",
+      "group": "finches"
+    },
+    "white-crowned-sparrow": {
+      "name": "White-Crowned Sparrow",
+      "group": "finches"
+    },
+    "dark-eyed-junco": {
+      "name": "Dark-Eyed Junco",
+      "group": "finches"
+    },
+    "california-towhee": {
+      "name": "California Towhee",
+      "group": "finches"
+    },
+    "spotted-towhee": {
+      "name": "Spotted Towhee",
+      "group": "finches"
+    },
+    "red-crested-cardinal": {
+      "name": "Red-Crested Cardinal",
+      "group": "finches"
+    },
+    "yellow-billed-cardinal": {
+      "name": "Yellow-Billed Cardinal",
+      "group": "finches"
+    },
+    "black-hooded-oriole": {
+      "name": "Black-Hooded Oriole",
+      "group": "orioles"
+    },
+    "black-naped-oriole": {
+      "name": "Black-Naped Oriole",
+      "group": "orioles"
+    },
+    "bullocks-oriole": {
+      "name": "Bullock's Oriole",
+      "group": "orioles"
+    },
+    "hooded-oriole": {
+      "name": "Hooded Oriole",
+      "group": "orioles"
+    },
+    "red-winged-blackbird": {
+      "name": "Red-Winged Blackbird",
+      "group": "orioles"
+    },
+    "brewers-blackbird": {
+      "name": "Brewer's Blackbird",
+      "group": "orioles"
+    },
+    "western-meadowlark": {
+      "name": "Western Meadowlark",
+      "group": "orioles"
+    },
+    "european-starling": {
+      "name": "European Starling",
+      "group": "orioles"
+    },
+    "asian-pied-starling": {
+      "name": "Asian Pied Starling",
+      "group": "orioles"
+    },
+    "common-myna": {
+      "name": "Common Myna",
+      "group": "orioles"
+    },
+    "western-bluebird": {
+      "name": "Western Bluebird",
+      "group": "songbirds"
+    },
+    "american-robin": {
+      "name": "American Robin",
+      "group": "songbirds"
+    },
+    "oriental-magpie-robin": {
+      "name": "Oriental Magpie-Robin",
+      "group": "songbirds"
+    },
+    "siberian-stonechat": {
+      "name": "Siberian Stonechat",
+      "group": "songbirds"
+    },
+    "blyth-paradise-flycatcher": {
+      "name": "Blyth's Paradise Flycatcher",
+      "group": "songbirds"
+    },
+    "verditer-flycatcher": {
+      "name": "Verditer Flycatcher",
+      "group": "songbirds"
+    },
+    "black-phoebe": {
+      "name": "Black Phoebe",
+      "group": "songbirds"
+    },
+    "black-drongo": {
+      "name": "Black Drongo",
+      "group": "songbirds"
+    },
+    "long-tailed-shrike": {
+      "name": "Long-Tailed Shrike",
+      "group": "songbirds"
+    },
+    "red-vented-bulbul": {
+      "name": "Red-Vented Bulbul",
+      "group": "songbirds"
+    },
+    "jungle-babbler": {
+      "name": "Jungle Babbler",
+      "group": "songbirds"
+    },
+    "bewicks-wren": {
+      "name": "Bewick's Wren",
+      "group": "songbirds"
+    },
+    "marsh-wren": {
+      "name": "Marsh Wren",
+      "group": "songbirds"
+    },
+    "bushtit": {
+      "name": "Bushtit",
+      "group": "songbirds"
+    },
+    "chestnut-backed-chickadee": {
+      "name": "Chestnut-backed Chickadee",
+      "group": "songbirds"
+    },
+    "townsends-warbler": {
+      "name": "Townsend's Warbler",
+      "group": "songbirds"
+    },
+    "yellow-warbler": {
+      "name": "Yellow Warbler",
+      "group": "songbirds"
+    },
+    "northern-mockingbird": {
+      "name": "Northern Mockingbird",
+      "group": "songbirds"
+    },
+    "california-thrasher": {
+      "name": "California Thrasher",
+      "group": "songbirds"
+    },
+    "tree-swallow": {
+      "name": "Tree Swallow",
+      "group": "songbirds"
+    },
+    "warbling-white-eye": {
+      "name": "Warbling White-Eye",
+      "group": "songbirds"
+    }
+  },
+  "home": [
+    {
+      "file": "blyth-paradise-flycatcher/blyth_paradise_flycatcher1.jpg",
+      "fill": true
+    },
+    "rufous-treepie/rufous_treepie5.jpg",
+    "black-kite/black_kite6.jpg",
+    {
+      "file": "rose-ringed-parakeet/rose_ringed_parakeet4.jpg",
+      "fill": true
+    },
+    "greater-coucal/greater_coucal5.jpg",
+    "black-rumped-flameback/black_rumped_flameback2.jpg",
+    "lineated-barbet/lineated_barbet4.jpg",
+    "white-throated-kingfisher/white_throated_kingfisher8.jpg",
+    "asian-koel/asian_koel7.jpg",
+    "asian-koel/asian_koel8.jpg",
+    "grey-heron/grey_heron1.jpg",
+    "grey-heron/grey_heron2.jpg",
+    "rufous-woodpecker/rufous_woodpecker1.jpg",
+    "bronze-winged-jacana/bronze_winged_jacana1.jpg",
+    "indian-pond-heron/indian_pond_heron2.jpg",
+    "bald-eagle/bald_eagle3.jpg",
+    "golden-eagle/golden_eagle3.jpg",
+    "snowy-owl/snowy_owl1.jpg",
+    "dark-morph-red-tailed-hawk/dark_morph_red_tailed_hawk2.jpg",
+    "siberian-stonechat/siberian_stonechat1.jpg",
+    "long-tailed-shrike/long_tailed_shrike1.jpg",
+    "asian-koel/asian_koel6.jpg",
+    "black-naped-oriole/black_naped_oriole3.jpg",
+    "yellow-footed-green-pigeon/yellow_footed_green_pigeon1.jpg",
+    "common-myna/common_myna3.jpg",
+    "allens-hummingbird/allens_hummingbird6.jpg",
+    "annas-hummingbird/annas_hummingbird5.jpg",
+    "lineated-barbet/lineated_barbet3.jpg",
+    "white-throated-kingfisher/white_throated_kingfisher_top.jpg",
+    "white-crowned-sparrow/white_crowned_sparrow1.jpg",
+    "blue-throated-barbet/blue_throated_barbet4.jpg",
+    "painted-stork/painted_stork2.jpg",
+    "black-drongo/black_drongo1.jpg",
+    "black-drongo/black_drongo3.jpg",
+    "asian-koel/asian_koel1.jpg",
+    "eurasian-collared-dove/eurasian_collared_dove1.jpg",
+    "oriental-magpie-robin/oriental_magpie_robin1.jpg",
+    "california-scrub-jay/california_scrub-jay3.jpg",
+    "california-scrub-jay/california_scrub-jay6.jpg",
+    "white-crowned-sparrow/white_crowned_sparrow2.jpg",
+    "java-sparrow/java_sparrow6.jpg",
+    "black-hooded-oriole/black_hooded_oriole5.jpg",
+    "western-bluebird/western_bluebird7.jpg",
+    "western-bluebird/western_bluebird11.jpg",
+    "rock-dove/rock_dove2.jpg",
+    "lesser-goldfinch/lesser_goldfinch3.jpg",
+    "lesser-goldfinch/lesser_goldfinch4.jpg",
+    "yellow-billed-cardinal/yellow_billed_cardinal1.jpg",
+    "mallard/mallard2.jpg",
+    "black-phoebe/black_phoebe2.jpg",
+    "spotted-towhee/spotted_towhee3.jpg",
+    "indian-pond-heron/indian_pond_heron1.jpg",
+    "indian-peafowl/indian_peafowl3.jpg",
+    "indian-peafowl/indian_peafowl4.jpg",
+    "muscovy-duck/muscovy_duck1.jpg",
+    "painted-stork/painted_stork3.jpg",
+    "common-myna/common_myna1.jpg",
+    "fox-sparrow/fox_sparrow3.jpg",
+    "white-tailed-kite/white_tailed_kite2.jpg",
+    "black-hooded-oriole/black_hooded_oriole7.jpg",
+    "bald-eagle/bald_eagle2.jpg",
+    "golden-eagle/golden_eagle4.jpg",
+    "western-bluebird/western_bluebird10.jpg",
+    "european-starling/european_starling3.jpg",
+    "purple-sunbird/purple_sunbird2.jpg",
+    "red-crested-cardinal/red_crested_cardinal2.jpg",
+    "red-vented-bulbul/red_vented_bulbul4.jpg",
+    "rufous-treepie/rufous_treepie3.jpg",
+    "rufous-treepie/rufous_treepie4.jpg",
+    "sandhill-crane/sandhill_crane2.jpg",
+    "canada-goose/canada_goose2.jpg",
+    "snowy-owl/snowy_owl2.jpg",
+    "black-rumped-flameback/black_rumped_flameback3.jpg"
+  ],
+  "photos": [
+    {
+      "file": "acorn-woodpecker/acorn_woodpecker1.jpg",
+      "caption": "Acorn Woodpecker, Sunol Regional Wilderness, CA"
+    },
+    {
+      "file": "acorn-woodpecker/acorn_woodpecker2.jpg",
+      "caption": "Acorn Woodpecker, Arizona Garden, Stanford, May 2024"
+    },
+    {
+      "file": "acorn-woodpecker/acorn_woodpecker3.jpg",
+      "caption": "Acorn Woodpecker"
+    },
+    {
+      "file": "allens-hummingbird/allens_hummingbird2.jpg",
+      "caption": "Allen's Hummingbird, UCSC Arboretum, Santa Cruz, April 2023"
+    },
+    {
+      "file": "allens-hummingbird/allens_hummingbird3.jpg",
+      "caption": "Allen's Hummingbird, UCSC Arboretum, Santa Cruz"
+    },
+    {
+      "file": "allens-hummingbird/allens_hummingbird4.jpg",
+      "caption": "Allen's Hummingbird, UCSC Arboretum, Santa Cruz, April 2023"
+    },
+    {
+      "file": "allens-hummingbird/allens_hummingbird5.jpg",
+      "caption": "Allen's Hummingbird"
+    },
+    {
+      "file": "allens-hummingbird/allens_hummingbird6.jpg",
+      "caption": "Allen's Hummingbird, UCSC Arboretum, Santa Cruz, CA, April 2023"
+    },
+    {
+      "file": "allens-hummingbird/allens_hummingbird7.jpg",
+      "caption": "Allen's Hummingbird"
+    },
+    {
+      "file": "allens-hummingbird/allens_hummingbird8.jpg",
+      "caption": "Allen's Hummingbird"
+    },
+    {
+      "file": "allens-hummingbird/allens_hummingbird9.jpg",
+      "caption": "Allen's Hummingbird"
+    },
+    {
+      "file": "allens-hummingbird/allens_hummingbird10.jpg",
+      "caption": "Allen's Hummingbird"
+    },
+    {
+      "file": "american-avocet/american_avocet1.jpg",
+      "caption": "American Avocet"
+    },
+    {
+      "file": "american-avocet/american_avocet2.jpg",
+      "caption": "American Avocet, Stevens Creek Shoreline Nature Study Area Preserve, Mountain View"
+    },
+    {
+      "file": "american-coot/american_coot1.jpg",
+      "caption": "American Coot, Shoreline Lake Bike Parking, Mountain View"
+    },
+    {
+      "file": "american-crow/american_crow1.jpg",
+      "caption": "American Crow, Cannery Park, Sunnyvale"
+    },
+    {
+      "file": "american-crow/american_crow2.jpg",
+      "caption": "American Crow, UCSC Arboretum, Santa Cruz, CA"
+    },
+    {
+      "file": "american-goldfinch/american_goldfinch1.jpg",
+      "caption": "American Goldfinch, Cannery Park, Sunnyvale"
+    },
+    {
+      "file": "american-robin/american_robin1.jpg",
+      "caption": "American Robin"
+    },
+    {
+      "file": "american-robin/american_robin2.jpg",
+      "caption": "American Robin, Cannery Park, Sunnyvale"
+    },
+    {
+      "file": "american-white-pelican/american_white_pelican1.jpg",
+      "caption": "American White Pelican, Sandy Wool Lake, Milpitas, Feb 2024"
+    },
+    {
+      "file": "american-white-pelican/american_white_pelican2.jpg",
+      "caption": "American White Pelican"
+    },
+    {
+      "file": "annas-hummingbird/annas_hummingbird2.jpg",
+      "caption": "Anna's Hummingbird, UCSC Arboretum, Santa Cruz, May 2021"
+    },
+    {
+      "file": "annas-hummingbird/annas_hummingbird3.jpg",
+      "caption": "Anna's Hummingbird"
+    },
+    {
+      "file": "annas-hummingbird/annas_hummingbird4.jpg",
+      "caption": "Anna's Hummingbird, McClellan Ranch Preserve, Cupertino"
+    },
+    {
+      "file": "annas-hummingbird/annas_hummingbird5.jpg",
+      "caption": "Anna's Hummingbird, UCSC Arboretum, Santa Cruz, CA, May 2021"
+    },
+    {
+      "file": "annas-hummingbird/annas_hummingbird6.jpg",
+      "caption": "Anna's Hummingbird, UCSC Arboretum, Santa Cruz, May 2021"
+    },
+    {
+      "file": "annas-hummingbird/annas_hummingbird7.jpg",
+      "caption": "Anna's Hummingbird"
+    },
+    {
+      "file": "annas-hummingbird/annas_hummingbird8.jpg",
+      "caption": "Anna's Hummingbird, Lands End, San Francisco, May 2023"
+    },
+    {
+      "file": "annas-hummingbird/annas_hummingbird9.jpg",
+      "caption": "Anna's Hummingbird, UCSC Arboretum, Santa Cruz, May 2021"
+    },
+    {
+      "file": "annas-hummingbird/annas_hummingbird10.jpg",
+      "caption": "Anna's Hummingbird, Natural Bridges State Beach, Santa Cruz"
+    },
+    {
+      "file": "annas-hummingbird/annas_hummingbird11.jpg",
+      "caption": "Anna's Hummingbird, Sunnyvale"
+    },
+    {
+      "file": "annas-hummingbird/annas_hummingbird12.jpg",
+      "caption": "Anna's Hummingbird, UCSC Arboretum, Santa Cruz, May 2021"
+    },
+    {
+      "file": "annas-hummingbird/annas_hummingbird13.jpg",
+      "caption": "Anna's Hummingbird, UCSC Arboretum, Santa Cruz, May 2021"
+    },
+    {
+      "file": "asian-koel/asian_koel1.jpg",
+      "caption": "Asian Koel, Rabindra Sarobar, Kolkata, India, Oct 2022"
+    },
+    {
+      "file": "asian-koel/asian_koel2.jpg",
+      "caption": "Asian Koel, Rabindra Sarobar, Kolkata, India"
+    },
+    {
+      "file": "asian-koel/asian_koel3.jpg",
+      "caption": "Asian Koel, Gariahat, Kolkata, India"
+    },
+    {
+      "file": "asian-koel/asian_koel4.jpg",
+      "caption": "Asian Koel"
+    },
+    {
+      "file": "asian-koel/asian_koel5.jpg",
+      "caption": "Asian Koel"
+    },
+    {
+      "file": "asian-koel/asian_koel6.jpg",
+      "caption": "Asian Koel (female), Rabindra Sarobar, Kolkata, India, Jan 2025"
+    },
+    {
+      "file": "asian-koel/asian_koel7.jpg",
+      "caption": "Asian Koel (male), Rabindra Sarobar, Kolkata, India, Oct 2025"
+    },
+    {
+      "file": "asian-koel/asian_koel8.jpg",
+      "caption": "Asian Koel (female), Rabindra Sarobar, Kolkata, India, Oct 2025"
+    },
+    {
+      "file": "asian-pied-starling/asian_pied_starling1.jpg",
+      "caption": "Asian Pied Starling, Rabindra Sarobar, Kolkata, India, Dec 2021"
+    },
+    {
+      "file": "bald-eagle/bald_eagle1.jpg",
+      "caption": "Bald Eagle, Northwest Trek Wildlife Park, Eatonville, WA, June 2025"
+    },
+    {
+      "file": "bald-eagle/bald_eagle2.jpg",
+      "caption": "Bald Eagle, Anchorage, Alaska, Aug 2023",
+      "crop": "10%"
+    },
+    {
+      "file": "bald-eagle/bald_eagle3.jpg",
+      "caption": "Salish and Sucia, the rescued Bald Eagles, Northwest Trek Wildlife Park, Eatonville, WA, June 2025"
+    },
+    {
+      "file": "bewicks-wren/bewicks_wren1.jpg",
+      "caption": "Bewick's Wren, UCSC Arboretum, Santa Cruz"
+    },
+    {
+      "file": "black-drongo/black_drongo1.jpg",
+      "caption": "Black Drongo, Rabindra Sarobar, Kolkata, India, May 2024"
+    },
+    {
+      "file": "black-drongo/black_drongo2.jpg",
+      "caption": "Black Drongo, Rabindra Sarobar, Kolkata, India, Jan 2024",
+      "crop": "15%"
+    },
+    {
+      "file": "black-drongo/black_drongo3.jpg",
+      "caption": "Black Drongo, Rabindra Sarobar, Kolkata, India, Dec 2024"
+    },
+    {
+      "file": "black-kite/black_kite1.jpg",
+      "caption": "Black Kite"
+    },
+    {
+      "file": "black-kite/black_kite2.jpg",
+      "caption": "Black Kite, Rabindra Sarobar, Kolkata, India"
+    },
+    {
+      "file": "black-kite/black_kite3.jpg",
+      "caption": "Black Kite, Rabindra Sarobar, Kolkata, India"
+    },
+    {
+      "file": "black-kite/black_kite4.jpg",
+      "caption": "Black Kite"
+    },
+    {
+      "file": "black-kite/black_kite5.jpg",
+      "caption": "Black Kite, Rabindra Sarobar, Kolkata, India, Nov 2026"
+    },
+    {
+      "file": "black-kite/black_kite6.jpg",
+      "caption": "Black Kite, Rabindra Sarobar, Kolkata, India, Nov 2026"
+    },
+    {
+      "file": "black-phoebe/black_phoebe2.jpg",
+      "caption": "Black Phoebe, Cannery Park, Sunnyvale, CA, Feb 2022"
+    },
+    {
+      "file": "black-crowned-night-heron/black_crowned_night_heron1.jpg",
+      "caption": "Black-Crowned Night-Heron (juvenile), Bear Creek Redwood Preserve Parking Lot, Los Gatos"
+    },
+    {
+      "file": "black-crowned-night-heron/black_crowned_night_heron2.jpg",
+      "caption": "Black-Crowned Night-Heron (juvenile), Rabindra Sarobar, Kolkata, India"
+    },
+    {
+      "file": "black-crowned-night-heron/black_crowned_night_heron3.jpg",
+      "caption": "Black-Crowned Night-Heron, Rabindra Sarobar, Kolkata, India"
+    },
+    {
+      "file": "black-hooded-oriole/black_hooded_oriole1.jpg",
+      "caption": "Black-Hooded Oriole, Rabindra Sarobar, Kolkata, India"
+    },
+    {
+      "file": "black-hooded-oriole/black_hooded_oriole2.jpg",
+      "caption": "Black-Hooded Oriole, Rabindra Sarobar, Kolkata, India, Dec 2021"
+    },
+    {
+      "file": "black-hooded-oriole/black_hooded_oriole3.jpg",
+      "caption": "Black-Hooded Oriole, Rabindra Sarobar, Kolkata, India, Oct 2022"
+    },
+    {
+      "file": "black-hooded-oriole/black_hooded_oriole4.jpg",
+      "caption": "Black-Hooded Oriole"
+    },
+    {
+      "file": "black-hooded-oriole/black_hooded_oriole5.jpg",
+      "caption": "Black-Hooded Oriole, Rabindra Sarobar, Kolkata, India, Dec 2023"
+    },
+    {
+      "file": "black-hooded-oriole/black_hooded_oriole6.jpg",
+      "caption": "Black-Hooded Oriole, Rabindra Sarobar, Kolkata, India, Dec 2023"
+    },
+    {
+      "file": "black-hooded-oriole/black_hooded_oriole7.jpg",
+      "caption": "Black-Hooded Oriole, Rabindra Sarobar, Kolkata, India, Dec 2024"
+    },
+    {
+      "file": "black-naped-oriole/black_naped_oriole1.jpg",
+      "caption": "Black-Naped Oriole, Rabindra Sarobar, Kolkata, India, Dec 2024"
+    },
+    {
+      "file": "black-naped-oriole/black_naped_oriole2.jpg",
+      "caption": "Black-Naped Oriole"
+    },
+    {
+      "file": "black-naped-oriole/black_naped_oriole3.jpg",
+      "caption": "Black-Naped Oriole, Rabindra Sarobar, Kolkata, India, Dec 2024"
+    },
+    {
+      "file": "black-rumped-flameback/black_rumped_flameback1.jpg",
+      "caption": "Black-Rumped Flameback, Rabindra Sarobar, Kolkata, India"
+    },
+    {
+      "file": "black-rumped-flameback/black_rumped_flameback2.jpg",
+      "caption": "Black-rumped Flameback, Rabindra Sarobar, Kolkata, India, Oct 2025"
+    },
+    {
+      "file": "black-rumped-flameback/black_rumped_flameback3.jpg",
+      "caption": "Black-Rumped Flameback, Rabindra Sarobar, Kolkata, India, Nov 2026",
+      "crop": "12%"
+    },
+    {
+      "file": "black-rumped-flameback/black_rumped_flameback4.jpg",
+      "caption": "Black-Rumped Flameback, Rabindra Sarobar, Kolkata, India, Nov 2026",
+      "crop": "12%"
+    },
+    {
+      "file": "blue-throated-barbet/blue_throated_barbet1.jpg",
+      "caption": "Blue-Throated Barbet, Rabindra Sarobar, Kolkata, India, May 2024"
+    },
+    {
+      "file": "blue-throated-barbet/blue_throated_barbet2.jpg",
+      "caption": "Blue-Throated Barbet, Safari Park, Rabindra Sarobar, Kolkata, May 2024"
+    },
+    {
+      "file": "blue-throated-barbet/blue_throated_barbet3.jpg",
+      "caption": "Blue-Throated Barbet"
+    },
+    {
+      "file": "blue-throated-barbet/blue_throated_barbet4.jpg",
+      "caption": "Blue-Throated Barbet, Rabindra Sarobar, Kolkata, India, Dec 2023"
+    },
+    {
+      "file": "blue-throated-barbet/blue_throated_barbet5.jpg",
+      "caption": "Blue-Throated Barbet"
+    },
+    {
+      "file": "blue-throated-barbet/blue_throated_barbet6.jpg",
+      "caption": "Blue-Throated Barbet, Rabindra Sarobar, Kolkata, India, Dec 2024"
+    },
+    {
+      "file": "blyth-paradise-flycatcher/blyth_paradise_flycatcher1.jpg",
+      "caption": "Blyth's Paradise Flycatcher, Rabindra Sarobar, Kolkata, India, Nov 2026",
+      "crop": "12%"
+    },
+    {
+      "file": "blyth-paradise-flycatcher/blyth_paradise_flycatcher2.jpg",
+      "caption": "Blyth's Paradise Flycatcher, Rabindra Sarobar, Kolkata, India, Nov 2026",
+      "crop": "10%"
+    },
+    {
+      "file": "brewers-blackbird/brewers_blackbird1.jpg",
+      "caption": "Brewer's Blackbird, Crissy Field South Beach, San Francisco"
+    },
+    {
+      "file": "bronze-winged-jacana/bronze_winged_jacana1.jpg",
+      "caption": "Bronze-winged Jacana, Rabindra Sarobar, Kolkata, India, Oct 2025"
+    },
+    {
+      "file": "bronze-winged-jacana/bronze_winged_jacana2.jpg",
+      "caption": "Bronze-winged Jacana"
+    },
+    {
+      "file": "brown-pelican/brown_pelican1.jpg",
+      "caption": "Brown Pelican, Santa Cruz Beach, CA, May 2021"
+    },
+    {
+      "file": "brown-pelican/brown_pelican2.jpg",
+      "caption": "Brown Pelican"
+    },
+    {
+      "file": "brown-pelican/brown_pelican3.jpg",
+      "caption": "Brown Pelican, Santa Cruz Beach, CA, May 2021"
+    },
+    {
+      "file": "brown-pelican/brown_pelican4.jpg",
+      "caption": "Brown Pelican, Santa Cruz Beach, CA, May 2021"
+    },
+    {
+      "file": "bullocks-oriole/bullocks_oriole1.jpg",
+      "caption": "Bullock's Oriole, Yosemite National Park, CA, April 2024"
+    },
+    {
+      "file": "bullocks-oriole/bullocks_oriole2.jpg",
+      "caption": "Bullock's Oriole, Yosemite National Park, CA"
+    },
+    {
+      "file": "bushtit/bushtit1.jpg",
+      "caption": "Bushtit, Ulistac, Santa Clara"
+    },
+    {
+      "file": "california-quail/california_quail1.jpg",
+      "caption": "California Quail, Belle de Jour Inn, Healdsburg, CA"
+    },
+    {
+      "file": "california-scrub-jay/california_scrub-jay1.jpg",
+      "caption": "California Scrub-Jay, Windy Hill Open Space Preserve, Portola Valley"
+    },
+    {
+      "file": "california-scrub-jay/california_scrub-jay2.jpg",
+      "caption": "California Scrub-Jay, Ulistac Natural Area, Santa Clara"
+    },
+    {
+      "file": "california-scrub-jay/california_scrub-jay3.jpg",
+      "caption": "California Scrub-Jay, Ulistac Natural Area, CA, Nov 2022"
+    },
+    {
+      "file": "california-scrub-jay/california_scrub-jay5.jpg",
+      "caption": "California Scrub-Jay, UCSC Arboretum, Santa Cruz, May 2021"
+    },
+    {
+      "file": "california-scrub-jay/california_scrub-jay6.jpg",
+      "caption": "California Scrub-Jay, Ulistac Natural Area, CA, Nov 2022"
+    },
+    {
+      "file": "california-thrasher/california_thrasher1.jpg",
+      "caption": "California Thrasher, Ulistac, Santa Clara, April 2025"
+    },
+    {
+      "file": "california-towhee/california_towhee1.jpg",
+      "caption": "California Towhee, Shoreline, Mountain View, May 2021"
+    },
+    {
+      "file": "canada-goose/canada_goose1.jpg",
+      "caption": "Canada Goose, Almaden Lake Park, San Jose, CA, Oct 2025"
+    },
+    {
+      "file": "canada-goose/canada_goose2.jpg",
+      "caption": "Canada Goose, Almaden Lake Park, San Jose, CA, Oct 2025"
+    },
+    {
+      "file": "chestnut-backed-chickadee/chestnut_backed_chickadee1.jpg",
+      "caption": "Chestnut-Backed Chickadee, UCSC Arboretum, Santa Cruz, June 2021"
+    },
+    {
+      "file": "common-gallinule/common_gallinule1.jpg",
+      "caption": "Common Gallinule, Phoenix, AZ"
+    },
+    {
+      "file": "common-myna/common_myna1.jpg",
+      "caption": "Common Myna, Royal Kona Resort, Kailua-Kona, Hawaii, July 2022"
+    },
+    {
+      "file": "common-myna/common_myna2.jpg",
+      "caption": "Common Myna, Rabindra Sarobar, Kolkata, India"
+    },
+    {
+      "file": "common-myna/common_myna3.jpg",
+      "caption": "Common Myna, Rabindra Sarobar, Kolkata, India, Jan 2025"
+    },
+    {
+      "file": "common-raven/common_raven1.jpg",
+      "caption": "Common Raven, Grand Canyon National Park, AZ"
+    },
+    {
+      "file": "common-raven/common_raven2.jpg",
+      "caption": "Common Raven"
+    },
+    {
+      "file": "common-raven/common_raven3.jpg",
+      "caption": "Common Raven, Mendocino, California, July 2020"
+    },
+    {
+      "file": "coppersmith-barbet/coppersmith_barbet1.jpg",
+      "caption": "Coppersmith Barbet, Rabindra Sarobar, Kolkata, India, May 2024"
+    },
+    {
+      "file": "coppersmith-barbet/coppersmith_barbet2.jpg",
+      "caption": "Coppersmith Barbet"
+    },
+    {
+      "file": "dark-morph-red-tailed-hawk/dark_morph_red_tailed_hawk1.jpg",
+      "caption": "Dark Morph Red-Tailed Hawk, McClellan Ranch, Cupertino, Feb 2023"
+    },
+    {
+      "file": "dark-morph-red-tailed-hawk/dark_morph_red_tailed_hawk2.jpg",
+      "caption": "Dark Morph Red-Tailed Hawk, McClellan Ranch, Cupertino, CA, Feb 2023"
+    },
+    {
+      "file": "dark-eyed-junco/dark_eyed_junco1.jpg",
+      "caption": "Dark-Eyed Junco, Bear Creek Redwood Preserve, Los Gatos, June 2021"
+    },
+    {
+      "file": "double-crested-cormorant/double_crested_cormorant1.jpg",
+      "caption": "Double-Crested Cormorant, Davis, CA, March 2023"
+    },
+    {
+      "file": "double-crested-cormorant/double_crested_cormorant2.jpg",
+      "caption": "Double-Crested Cormorant"
+    },
+    {
+      "file": "eurasian-collared-dove/eurasian_collared_dove1.jpg",
+      "caption": "Eurasian Collared Dove, Phoenix, AZ, Nov 2022"
+    },
+    {
+      "file": "eurasian-collared-dove/eurasian_collared_dove2.jpg",
+      "caption": "Eurasian Collared Dove, Phoenix, AZ, Nov 2022"
+    },
+    {
+      "file": "european-starling/european_starling1.jpg",
+      "caption": "European Starling"
+    },
+    {
+      "file": "european-starling/european_starling2.jpg",
+      "caption": "European Starling, Crissy Field South Beach, San Francisco"
+    },
+    {
+      "file": "european-starling/european_starling3.jpg",
+      "caption": "European Starling, Crissy Field South Beach, San Francisco, CA, Dec 2020"
+    },
+    {
+      "file": "feral-rooster/feral_rooster1.jpg",
+      "caption": "Feral Rooster, Honolulu, Hawaii, Jan 2023"
+    },
+    {
+      "file": "forsters-tern/forsters_tern1.jpg",
+      "caption": "Forster's Tern, Coyote Hills Regional Park, Fremont"
+    },
+    {
+      "file": "fox-sparrow/fox_sparrow1.jpg",
+      "caption": "Fox Sparrow, Coyote Hills Regional Park, Fremont"
+    },
+    {
+      "file": "fox-sparrow/fox_sparrow2.jpg",
+      "caption": "Fox Sparrow, Lands End, San Francisco"
+    },
+    {
+      "file": "fox-sparrow/fox_sparrow3.jpg",
+      "caption": "Fox Sparrow, Coyote Hills Regional Park, Fremont, CA, May 2021"
+    },
+    {
+      "file": "gambels-quail/gambels_quail1.jpg",
+      "caption": "Gambel's Quail, Papago Park, Phoenix, AZ"
+    },
+    {
+      "file": "golden-eagle/golden_eagle1.jpg",
+      "caption": "Golden Eagle, California Raptor Center, Davis, May 2023",
+      "crop": "10%"
+    },
+    {
+      "file": "golden-eagle/golden_eagle2.jpg",
+      "caption": "Golden Eagle"
+    },
+    {
+      "file": "golden-eagle/golden_eagle3.jpg",
+      "caption": "Hayward, the rescued Golden Eagle, Northwest Trek Wildlife Park, Eatonville, WA, June 2025"
+    },
+    {
+      "file": "golden-eagle/golden_eagle4.jpg",
+      "caption": "Hayward, the rescued Golden Eagle, Northwest Trek Wildlife Park, Eatonville, WA, June 2025",
+      "crop": "12%"
+    },
+    {
+      "file": "golden-crowned-sparrow/golden_crowned_sparrow1.jpg",
+      "caption": "Golden-Crowned Sparrow, Ulistac, Santa Clara, March 2023"
+    },
+    {
+      "file": "golden-crowned-sparrow/golden_crowned_sparrow2.jpg",
+      "caption": "Golden-Crowned Sparrow, UCSC Arboretum, Santa Cruz, May 2021"
+    },
+    {
+      "file": "great-blue-heron/great_blue_heron1.jpg",
+      "caption": "Great Blue Heron, San Francisco, CA, May 2023"
+    },
+    {
+      "file": "great-blue-heron/great_blue_heron2.jpg",
+      "caption": "Great Blue Heron, San Francisco, CA, May 2023"
+    },
+    {
+      "file": "great-blue-heron/great_blue_heron3.jpg",
+      "caption": "Great Blue Heron, Ed Levin County Park, Milpitas, June 2024"
+    },
+    {
+      "file": "great-egret/great_egret1.jpg",
+      "caption": "Great Egret, Coyote Hills Regional Park, Fremont"
+    },
+    {
+      "file": "great-egret/great_egret2.jpg",
+      "caption": "Great Egret, Bay Trail, Sunnyvale, July 2020"
+    },
+    {
+      "file": "great-egret/great_egret3.jpg",
+      "caption": "Great Egret, Shoreline, Mountain View"
+    },
+    {
+      "file": "great-egret/great_egret5.jpg",
+      "caption": "Great Egret"
+    },
+    {
+      "file": "great-egret/great_egret6.jpg",
+      "caption": "Great Egret"
+    },
+    {
+      "file": "great-horned-owl/great_horned_owl1.jpg",
+      "caption": "Great Horned Owl, California Raptor Center, Davis, May 2023"
+    },
+    {
+      "file": "great-horned-owl/great_horned_owl2.jpg",
+      "caption": "Great Horned Owl"
+    },
+    {
+      "file": "greater-coucal/greater_coucal1.jpg",
+      "caption": "Greater Coucal, Rabindra Sarobar, Kolkata, India, Dec 2021"
+    },
+    {
+      "file": "greater-coucal/greater_coucal2.jpg",
+      "caption": "Greater Coucal, Rabindra Sarobar, Kolkata, India"
+    },
+    {
+      "file": "greater-coucal/greater_coucal3.jpg",
+      "caption": "Greater Coucal, Rabindra Sarobar, Kolkata, India, Nov 2026"
+    },
+    {
+      "file": "greater-coucal/greater_coucal4.jpg",
+      "caption": "Greater Coucal, Rabindra Sarobar, Kolkata, India, Nov 2026",
+      "crop": "8%"
+    },
+    {
+      "file": "greater-coucal/greater_coucal5.jpg",
+      "caption": "Greater Coucal, Rabindra Sarobar, Kolkata, India, Nov 2026"
+    },
+    {
+      "file": "greater-coucal/greater_coucal6.jpg",
+      "caption": "Greater Coucal, Rabindra Sarobar, Kolkata, India, Nov 2026"
+    },
+    {
+      "file": "greater-coucal/greater_coucal7.jpg",
+      "caption": "Greater Coucal, Rabindra Sarobar, Kolkata, India, Nov 2026"
+    },
+    {
+      "file": "green-bee-eater/green_bee_eater1.jpg",
+      "caption": "Green Bee-Eater, Chintamani Kar Bird Sanctuary, Kolkata, India, Dec 2021"
+    },
+    {
+      "file": "green-bee-eater/green_bee_eater2.jpg",
+      "caption": "Green Bee-Eater, Chintamani Kar Bird Sanctuary, Kolkata, India"
+    },
+    {
+      "file": "grey-heron/grey_heron1.jpg",
+      "caption": "Grey Heron, Rabindra Sarobar, Kolkata, India, Oct 2025"
+    },
+    {
+      "file": "grey-heron/grey_heron2.jpg",
+      "caption": "Grey Heron and Indian Cormorant, Rabindra Sarobar, Kolkata, India, Oct 2025"
+    },
+    {
+      "file": "hooded-oriole/hooded_oriole1.jpg",
+      "caption": "Hooded Oriole, Willow Glen, San Jose, Jun 2025"
+    },
+    {
+      "file": "house-crow/house_crow1.jpg",
+      "caption": "House Crow, Rabindra Sarobar, Kolkata, India, Jan 2025"
+    },
+    {
+      "file": "house-finch/house_finch1.jpg",
+      "caption": "House Finch, Sunnyvale Business Park"
+    },
+    {
+      "file": "house-finch/house_finch2.jpg",
+      "caption": "House Finch"
+    },
+    {
+      "file": "house-sparrow/house_sparrow1.jpg",
+      "caption": "House Sparrow, Rabindra Sarobar, Kolkata, India"
+    },
+    {
+      "file": "indian-peafowl/indian_peafowl1.jpg",
+      "caption": "Indian Peafowl, Garden of Eden Arboretum, Hana, Hawaii, May 2015",
+      "crop": "0%"
+    },
+    {
+      "file": "indian-peafowl/indian_peafowl2.jpg",
+      "caption": "Indian Peafowl"
+    },
+    {
+      "file": "indian-peafowl/indian_peafowl3.jpg",
+      "caption": "Indian Peafowl, Maui's Garden of Eden, Hawaii, Jan 2016"
+    },
+    {
+      "file": "indian-peafowl/indian_peafowl4.jpg",
+      "caption": "Indian Peafowl, Maui's Garden of Eden, Hawaii, Jan 2016"
+    },
+    {
+      "file": "indian-pond-heron/indian_pond_heron1.jpg",
+      "caption": "Indian Pond-Heron, Rabindra Sarobar, Kolkata, India, May 2024"
+    },
+    {
+      "file": "indian-pond-heron/indian_pond_heron2.jpg",
+      "caption": "Indian Pond-Heron, Rabindra Sarobar, Kolkata, India, Oct 2025"
+    },
+    {
+      "file": "java-sparrow/java_sparrow1.jpg",
+      "caption": "Java Sparrow, Royal Kona Resort, Kailua-Kona, Hawaii"
+    },
+    {
+      "file": "java-sparrow/java_sparrow2.jpg",
+      "caption": "Java Sparrow, Royal Kona Resort, Kailua-Kona, Hawaii, July 2022"
+    },
+    {
+      "file": "java-sparrow/java_sparrow4.jpg",
+      "caption": "Java Sparrow, Royal Kona Resort, Kailua-Kona, Hawaii, July 2022"
+    },
+    {
+      "file": "java-sparrow/java_sparrow6.jpg",
+      "caption": "Java Sparrow, Royal Kona Resort, Kailua-Kona, Hawaii, July 2022"
+    },
+    {
+      "file": "jungle-babbler/jungle_babbler1.jpg",
+      "caption": "Jungle Babbler, Rabindra Sarobar, Kolkata, India, Jan 2024"
+    },
+    {
+      "file": "jungle-babbler/jungle_babbler2.jpg",
+      "caption": "Jungle Babbler, Chintamani Kar Bird Sanctuary, Kolkata, India"
+    },
+    {
+      "file": "lesser-goldfinch/lesser_goldfinch1.jpg",
+      "caption": "Lesser Goldfinch"
+    },
+    {
+      "file": "lesser-goldfinch/lesser_goldfinch2.jpg",
+      "caption": "Lesser Goldfinch, Ulistac, Santa Clara, May 2024"
+    },
+    {
+      "file": "lesser-goldfinch/lesser_goldfinch3.jpg",
+      "caption": "Lesser Goldfinch, Ulistac, Santa Clara, CA, May 2024"
+    },
+    {
+      "file": "lesser-goldfinch/lesser_goldfinch4.jpg",
+      "caption": "Lesser Goldfinch, San Francisco Bay Trail, Sunnyvale, CA, Nov 2025"
+    },
+    {
+      "file": "lesser-whistling-duck/lesser_whistling_duck1.jpg",
+      "caption": "Lesser Whistling-Duck, Santragachi Jheel, Kolkata, India"
+    },
+    {
+      "file": "lesser-yellowlegs/lesser_yellowlegs1.jpg",
+      "caption": "Lesser Yellowlegs, Shoreline, Mountain View"
+    },
+    {
+      "file": "lineated-barbet/lineated_barbet1.jpg",
+      "caption": "Lineated Barbet, Rabindra Sarobar, Kolkata, India, Jan 2024"
+    },
+    {
+      "file": "lineated-barbet/lineated_barbet2.jpg",
+      "caption": "Lineated Barbet, Rabindra Sarobar, Kolkata, India, Dec 2023"
+    },
+    {
+      "file": "lineated-barbet/lineated_barbet3.jpg",
+      "caption": "Lineated Barbet, Rabindra Sarobar, Kolkata, India, Dec 2024"
+    },
+    {
+      "file": "lineated-barbet/lineated_barbet4.jpg",
+      "caption": "Lineated Barbet, Rabindra Sarobar, Kolkata, India, Oct 2025"
+    },
+    {
+      "file": "little-cormorant/little_cormorant1.jpg",
+      "caption": "Little Cormorant, Rabindra Sarobar, Kolkata, India, Sept 2022",
+      "crop": "20%"
+    },
+    {
+      "file": "little-cormorant/little_cormorant2.jpg",
+      "caption": "Little Cormorant"
+    },
+    {
+      "file": "little-cormorant/little_cormorant3.jpg",
+      "caption": "Little Cormorant",
+      "crop": "10%"
+    },
+    {
+      "file": "long-tailed-shrike/long_tailed_shrike1.jpg",
+      "caption": "Long-Tailed Shrike, Sonar Bangla, Kolkata, India, Jan 2025"
+    },
+    {
+      "file": "mallard/mallard1.jpg",
+      "caption": "Mallard, Coyote Hills Regional Park, Fremont"
+    },
+    {
+      "file": "mallard/mallard2.jpg",
+      "caption": "Mallard, Davis, CA, May 2023"
+    },
+    {
+      "file": "marsh-wren/marsh_wren1.jpg",
+      "caption": "Marsh Wren, Coyote Hills Regional Park, Fremont"
+    },
+    {
+      "file": "medium-egret/medium_egret1.jpg",
+      "caption": "Medium Egret, Rabindra Sarobar, Kolkata, India, Jan 2024"
+    },
+    {
+      "file": "medium-egret/medium_egret2.jpg",
+      "caption": "Medium Egret, Rabindra Sarobar, Kolkata, India, Jan 2024",
+      "crop": "0%"
+    },
+    {
+      "file": "mourning-dove/mourning_dove1.jpg",
+      "caption": "Mourning Dove, Coyote Hills Regional Park, Fremont, July 2021"
+    },
+    {
+      "file": "mourning-dove/mourning_dove2.jpg",
+      "caption": "Mourning Dove"
+    },
+    {
+      "file": "muscovy-duck/muscovy_duck1.jpg",
+      "caption": "Muscovy Duck, Maui's Garden of Eden, Hawaii, Jan 2016"
+    },
+    {
+      "file": "muscovy-duck/muscovy_duck2.jpg",
+      "caption": "Muscovy Duck"
+    },
+    {
+      "file": "northern-flicker/northern_flicker1.jpg",
+      "caption": "Northern Flicker"
+    },
+    {
+      "file": "northern-flicker/northern_flicker2.jpg",
+      "caption": "Northern Flicker, Pleasanton Ridge Regional Park, CA"
+    },
+    {
+      "file": "northern-mockingbird/northern_mockingbird1.jpg",
+      "caption": "Northern Mockingbird, San Jose Gurdwara"
+    },
+    {
+      "file": "northern-mockingbird/northern_mockingbird3.jpg",
+      "caption": "Northern Mockingbird, Ulistac, Santa Clara, May 2024"
+    },
+    {
+      "file": "oriental-darter/oriental_darter1.jpg",
+      "caption": "Oriental Darter, Rabindra Sarobar, Kolkata, India, May 2024"
+    },
+    {
+      "file": "oriental-darter/oriental_darter2.jpg",
+      "caption": "Oriental Darter"
+    },
+    {
+      "file": "oriental-magpie-robin/oriental_magpie_robin1.jpg",
+      "caption": "Oriental Magpie-Robin, Rabindra Sarobar, Kolkata, India, May 2024"
+    },
+    {
+      "file": "pacific-golden-plover/pacific_golden_plover1.jpg",
+      "caption": "Pacific Golden-Plover, Honolulu, Hawaii"
+    },
+    {
+      "file": "painted-stork/painted_stork1.jpg",
+      "caption": "Painted Stork, Rabindra Sarobar, Kolkata, India, Dec 2021"
+    },
+    {
+      "file": "painted-stork/painted_stork2.jpg",
+      "caption": "Painted Stork, Rabindra Sarobar, Kolkata, India, Dec 2021"
+    },
+    {
+      "file": "painted-stork/painted_stork3.jpg",
+      "caption": "Painted Stork, Rabindra Sarobar, Kolkata, India, Oct 2022"
+    },
+    {
+      "file": "painted-stork/painted_stork4.jpg",
+      "caption": "Painted Stork, Rabindra Sarobar, Kolkata, India, Dec 2021"
+    },
+    {
+      "file": "painted-stork/painted_stork5.jpg",
+      "caption": "Painted Stork, Rabindra Sarobar, Kolkata, India"
+    },
+    {
+      "file": "painted-stork/painted_stork6.jpg",
+      "caption": "Painted Stork, Rabindra Sarobar, Kolkata, India"
+    },
+    {
+      "file": "painted-stork/painted_stork7.jpg",
+      "caption": "Painted Stork"
+    },
+    {
+      "file": "painted-stork/painted_stork8.jpg",
+      "caption": "Painted Stork, Rabindra Sarobar, Kolkata, India, Dec 2021"
+    },
+    {
+      "file": "painted-stork/painted_stork9.jpg",
+      "caption": "Painted Stork, Rabindra Sarobar, Kolkata, India, Dec 2023"
+    },
+    {
+      "file": "painted-stork/painted_stork10.jpg",
+      "caption": "Painted Stork"
+    },
+    {
+      "file": "painted-stork/painted_stork11.jpg",
+      "caption": "Painted Stork, Rabindra Sarobar, Kolkata, India, Jan 2025"
+    },
+    {
+      "file": "peregrine-falcon/peregrine_falcon1.jpg",
+      "caption": "Peregrine Falcon, Piso Beach Pier, CA"
+    },
+    {
+      "file": "purple-sunbird/purple_sunbird1.jpg",
+      "caption": "Purple Sunbird, Rabindra Sarobar, Kolkata, India, May 2024"
+    },
+    {
+      "file": "purple-sunbird/purple_sunbird2.jpg",
+      "caption": "Purple Sunbird, Rabindra Sarobar, Kolkata, India, Dec 2024"
+    },
+    {
+      "file": "purple-sunbird/purple_sunbird3.jpg",
+      "caption": "Purple Sunbird (female), Rabindra Sarobar, Kolkata, India, Dec 2024"
+    },
+    {
+      "file": "red-crested-cardinal/red_crested_cardinal1.jpg",
+      "caption": "Red-Crested Cardinal, Turtle Bay Beach, Hawaii, Jan 2023"
+    },
+    {
+      "file": "red-crested-cardinal/red_crested_cardinal2.jpg",
+      "caption": "Red-Crested Cardinal, Turtle Bay Beach, Hawaii, Jan 2023"
+    },
+    {
+      "file": "red-shouldered-hawk/red_shouldered_hawk1.jpg",
+      "caption": "Red-Shouldered Hawk, Ulistic, Santa Clara"
+    },
+    {
+      "file": "red-shouldered-hawk/red_shouldered_hawk2.jpg",
+      "caption": "Red-Shouldered Hawk, Cupertino, CA"
+    },
+    {
+      "file": "red-shouldered-hawk/red_shouldered_hawk3.jpg",
+      "caption": "Red-Shouldered Hawk"
+    },
+    {
+      "file": "red-shouldered-hawk/red_shouldered_hawk4.jpg",
+      "caption": "Red-Shouldered Hawk"
+    },
+    {
+      "file": "red-shouldered-hawk/red_shouldered_hawk5.jpg",
+      "caption": "Red-Shouldered Hawk, Shannon Valley, Los Gatos"
+    },
+    {
+      "file": "red-tailed-hawk/red_tailed_hawk1.jpg",
+      "caption": "Red-Tailed Hawk, Shoreline Lake, Mountain View"
+    },
+    {
+      "file": "red-tailed-hawk/red_tailed_hawk2.jpg",
+      "caption": "Red-Tailed Hawk, Shoreline Lake, Mountain View"
+    },
+    {
+      "file": "red-vented-bulbul/red_vented_bulbul1.jpg",
+      "caption": "Red-Vented Bulbul, Rabindra Sarobar, Kolkata, India, May 2024"
+    },
+    {
+      "file": "red-vented-bulbul/red_vented_bulbul2.jpg",
+      "caption": "Red-Vented Bulbul, Rabindra Sarobar, Kolkata, India, Dec 2023"
+    },
+    {
+      "file": "red-vented-bulbul/red_vented_bulbul3.jpg",
+      "caption": "Red-Vented Bulbul, Chintamani Kar Bird Sanctuary, Kolkata, India"
+    },
+    {
+      "file": "red-vented-bulbul/red_vented_bulbul4.jpg",
+      "caption": "Red-Vented Bulbul, Rabindra Sarobar, Kolkata, India, Jan 2024",
+      "crop": "12%"
+    },
+    {
+      "file": "red-winged-blackbird/red_winged_blackbird1.jpg",
+      "caption": "Red-Winged Blackbird, Ulistac, Santa Clara, May 2024"
+    },
+    {
+      "file": "red-winged-blackbird/red_winged_blackbird2.jpg",
+      "caption": "Red-Winged Blackbird"
+    },
+    {
+      "file": "red-winged-blackbird/red_winged_blackbird3.jpg",
+      "caption": "Red-Winged Blackbird"
+    },
+    {
+      "file": "rock-dove/rock_dove1.jpg",
+      "caption": "Rock Dove, Honolulu, Hawaii"
+    },
+    {
+      "file": "rock-dove/rock_dove2.jpg",
+      "caption": "Rock Dove, Honolulu, Hawaii, July 2022"
+    },
+    {
+      "file": "rock-pigeon/rock_pigeon1.jpg",
+      "caption": "Rock Pigeon, Papago Park, Phoenix, AZ"
+    },
+    {
+      "file": "rock-pigeon/rock_pigeon2.jpg",
+      "caption": "Rock Pigeon, Shoreline Park, San Francisco, April 2021"
+    },
+    {
+      "file": "rose-ringed-parakeet/rose_ringed_parakeet2.jpg",
+      "caption": "Rose-Ringed Parakeet, Gariahat, Kolkata, India, Sept 2022"
+    },
+    {
+      "file": "rose-ringed-parakeet/rose_ringed_parakeet3.jpg",
+      "caption": "Rose-Ringed Parakeet, Rabindra Sarobar, Kolkata, India, Dec 2023",
+      "crop": "18%"
+    },
+    {
+      "file": "rose-ringed-parakeet/rose_ringed_parakeet4.jpg",
+      "caption": "Rose-Ringed Parakeet, Rabindra Sarobar, Kolkata, India, Nov 2026",
+      "crop": "35%"
+    },
+    {
+      "file": "rose-ringed-parakeet/rose_ringed_parakeet5.jpg",
+      "caption": "Rose-Ringed Parakeet, Rabindra Sarobar, Kolkata, India, Nov 2026",
+      "crop": "12%"
+    },
+    {
+      "file": "rufous-treepie/rufous_treepie1.jpg",
+      "caption": "Rufous Treepie, Rabindra Sarobar, Kolkata, India, Dec 2021",
+      "crop": "15%"
+    },
+    {
+      "file": "rufous-treepie/rufous_treepie2.jpg",
+      "caption": "Rufous Treepie, Rabindra Sarobar, Kolkata, India, May 2024"
+    },
+    {
+      "file": "rufous-treepie/rufous_treepie3.jpg",
+      "caption": "Rufous Treepie, Rabindra Sarobar Safari Park, Kolkata, India, May 2024",
+      "crop": "15%"
+    },
+    {
+      "file": "rufous-treepie/rufous_treepie4.jpg",
+      "caption": "Rufous Treepie, Rabindra Sarobar, Kolkata, India, Oct 2025",
+      "crop": "20%"
+    },
+    {
+      "file": "rufous-treepie/rufous_treepie5.jpg",
+      "caption": "Rufous Treepie, Rabindra Sarobar, Kolkata, India, Nov 2026"
+    },
+    {
+      "file": "rufous-treepie/rufous_treepie6.jpg",
+      "caption": "Rufous Treepie, Rabindra Sarobar, Kolkata, India, Nov 2026"
+    },
+    {
+      "file": "rufous-woodpecker/rufous_woodpecker1.jpg",
+      "caption": "Rufous Woodpecker, Rabindra Sarobar, Kolkata, India, Oct 2025"
+    },
+    {
+      "file": "saffron-finch/saffron_finch1.jpg",
+      "caption": "Saffron Finch, Royal Kona Resort, Kailua-Kona, Hawaii"
+    },
+    {
+      "file": "saffron-finch/saffron_finch2.jpg",
+      "caption": "Saffron Finch, Royal Kona Resort, Kailua-Kona, Hawaii"
+    },
+    {
+      "file": "saffron-finch/saffron_finch3.jpg",
+      "caption": "Saffron Finch"
+    },
+    {
+      "file": "sandhill-crane/sandhill_crane1.jpg",
+      "caption": "Sandhill Crane, Anchorage, Alaska"
+    },
+    {
+      "file": "sandhill-crane/sandhill_crane2.jpg",
+      "caption": "Sandhill Crane, Anchorage, Alaska, Aug 2023"
+    },
+    {
+      "file": "siberian-stonechat/siberian_stonechat1.jpg",
+      "caption": "Siberian Stonechat, Sonar Bangla, Kolkata, India, Jan 2025"
+    },
+    {
+      "file": "siberian-stonechat/siberian_stonechat2.jpg",
+      "caption": "Siberian Stonechat"
+    },
+    {
+      "file": "snow-goose/snow_goose1.jpg",
+      "caption": "Snow Goose, Vasona Lake County Park, Los Gatos"
+    },
+    {
+      "file": "snowy-egret/snowy_egret1.jpg",
+      "caption": "Snowy Egret, Coyote Hills Regional Park, Fremont, May 2021"
+    },
+    {
+      "file": "snowy-egret/snowy_egret2.jpg",
+      "caption": "Snowy Egret, Lands End, San Francisco"
+    },
+    {
+      "file": "snowy-egret/snowy_egret3.jpg",
+      "caption": "Snowy Egret, Coyote Hills Regional Park, Fremont"
+    },
+    {
+      "file": "snowy-owl/snowy_owl1.jpg",
+      "caption": "Tundra, the male Snowy Owl, Northwest Trek Wildlife Park, Eatonville, WA, June 2025"
+    },
+    {
+      "file": "snowy-owl/snowy_owl2.jpg",
+      "caption": "Taiga, the female Snowy Owl, Northwest Trek Wildlife Park, Eatonville, WA, June 2025"
+    },
+    {
+      "file": "spotted-dove/spotted_dove1.jpg",
+      "caption": "Spotted Dove, Rabindra Sarobar, Kolkata, India"
+    },
+    {
+      "file": "spotted-owlet/spotted_owlet1.jpg",
+      "caption": "Spotted Owlet, Rabindra Sarobar, Kolkata, India"
+    },
+    {
+      "file": "spotted-towhee/spotted_towhee1.jpg",
+      "caption": "Spotted Towhee, UCSC Arboretum, Santa Cruz, May 2021"
+    },
+    {
+      "file": "spotted-towhee/spotted_towhee2.jpg",
+      "caption": "Spotted Towhee, Arizona Garden, Stanford, May 2024"
+    },
+    {
+      "file": "spotted-towhee/spotted_towhee3.jpg",
+      "caption": "Spotted Towhee, Arizona Garden, Stanford, CA, May 2024"
+    },
+    {
+      "file": "stellers-jay/stellers_jay1.jpg",
+      "caption": "Steller's Jay, Alum Rock Park, San Jose, July 2022"
+    },
+    {
+      "file": "stellers-jay/stellers_jay2.jpg",
+      "caption": "Steller's Jay"
+    },
+    {
+      "file": "stellers-jay/stellers_jay3.jpg",
+      "caption": "Steller's Jay, Alum Rock Park, San Jose, July 2022"
+    },
+    {
+      "file": "stork-billed-kingfisher/stork_billed_kingfisher1.jpg",
+      "caption": "Stork-Billed Kingfisher, Rabindra Sarobar, Kolkata, India"
+    },
+    {
+      "file": "stork-billed-kingfisher/stork_billed_kingfisher2.jpg",
+      "caption": "Stork-Billed Kingfisher, Rabindra Sarobar, Kolkata, India"
+    },
+    {
+      "file": "swainsons-hawk/swainsons_hawk1.jpg",
+      "caption": "Swainson's Hawk, Shoreline Lake Boat Playground, Mountain View"
+    },
+    {
+      "file": "townsends-warbler/townsends_warbler1.jpg",
+      "caption": "Townsend's Warbler, Ulistac, Santa Clara, Nov 2020"
+    },
+    {
+      "file": "townsends-warbler/townsends_warbler2.jpg",
+      "caption": "Townsend's Warbler"
+    },
+    {
+      "file": "townsends-warbler/townsends_warbler3.jpg",
+      "caption": "Townsend's Warbler, Ulistac, Santa Clara, Nov 2020"
+    },
+    {
+      "file": "tree-swallow/tree_swallow1.jpg",
+      "caption": "Tree Swallow, Coyote Hills Regional Park, Fremont"
+    },
+    {
+      "file": "turkey-vulture/turkey_vulture1.jpg",
+      "caption": "Turkey Vulture, Rancho San Vicente Open Space Preserve, San Jose"
+    },
+    {
+      "file": "verditer-flycatcher/verditer_flycatcher1.jpg",
+      "caption": "Verditer Flycatcher, Rabindra Sarobar, Kolkata, India, Dec 2024"
+    },
+    {
+      "file": "warbling-white-eye/warbling_white_eye1.jpg",
+      "caption": "Warbling White-Eye, Kona Farmers Market, Kailua-Kona, Hawaii"
+    },
+    {
+      "file": "western-bluebird/western_bluebird1.jpg",
+      "caption": "Western Bluebird, McClellan Ranch, Cupertino"
+    },
+    {
+      "file": "western-bluebird/western_bluebird2.jpg",
+      "caption": "Western Bluebird, Arizona Garden, Stanford, May 2024"
+    },
+    {
+      "file": "western-bluebird/western_bluebird3.jpg",
+      "caption": "Western Bluebird, Pleasanton Ridge Regional Park, CA, April 2021"
+    },
+    {
+      "file": "western-bluebird/western_bluebird4.jpg",
+      "caption": "Western Bluebird, McClellan Ranch, Cupertino"
+    },
+    {
+      "file": "western-bluebird/western_bluebird5.jpg",
+      "caption": "Western Bluebird, Grand Canyon National Park, AZ"
+    },
+    {
+      "file": "western-bluebird/western_bluebird6.jpg",
+      "caption": "Western Bluebird, McClellan Ranch, Cupertino"
+    },
+    {
+      "file": "western-bluebird/western_bluebird7.jpg",
+      "caption": "Western Bluebird, UCSC Arboretum, Santa Cruz, CA, June 2021"
+    },
+    {
+      "file": "western-bluebird/western_bluebird8.jpg",
+      "caption": "Western Bluebird, UCSC Arboretum, Santa Cruz"
+    },
+    {
+      "file": "western-bluebird/western_bluebird9.jpg",
+      "caption": "Western Bluebird"
+    },
+    {
+      "file": "western-bluebird/western_bluebird10.jpg",
+      "caption": "Western Bluebird, Pleasanton Ridge Regional Park, CA, April 2021"
+    },
+    {
+      "file": "western-bluebird/western_bluebird11.jpg",
+      "caption": "Western Bluebird, Pleasanton Ridge Regional Park, CA, April 2021"
+    },
+    {
+      "file": "western-gull/western_gull1.jpg",
+      "caption": "Western Gull, Santa Cruz Beach, CA, May 2021"
+    },
+    {
+      "file": "western-meadowlark/western_meadowlark1.jpg",
+      "caption": "Western Meadowlark"
+    },
+    {
+      "file": "western-meadowlark/western_meadowlark2.jpg",
+      "caption": "Western Meadowlark, Rancho San Vicente Open Space Preserve, San Jose"
+    },
+    {
+      "file": "white-breasted-waterhen/white_brested_waterhen1.jpg",
+      "caption": "White-Breasted Waterhen, Rabindra Sarobar, Kolkata, India, May 2024"
+    },
+    {
+      "file": "white-crowned-sparrow/white_crowned_sparrow1.jpg",
+      "caption": "White-Crowned Sparrow, Shoreline, Mountain View, CA, Nov 2020"
+    },
+    {
+      "file": "white-crowned-sparrow/white_crowned_sparrow2.jpg",
+      "caption": "White-Crowned Sparrow, Shoreline Lake, Mountain View, CA, Nov 2023"
+    },
+    {
+      "file": "white-crowned-sparrow/white_crowned_sparrow3.jpg",
+      "caption": "White-Crowned Sparrow"
+    },
+    {
+      "file": "white-tailed-kite/white_tailed_kite1.jpg",
+      "caption": "White-Tailed Kite"
+    },
+    {
+      "file": "white-tailed-kite/white_tailed_kite2.jpg",
+      "caption": "White-Tailed Kite, Wavecrest Open Space, Half Moon Bay, CA, Nov 2020"
+    },
+    {
+      "file": "white-throated-kingfisher/white_throated_kingfisher1.jpg",
+      "caption": "White-Throated Kingfisher, Rabindra Sarobar, Kolkata, India, May 2024"
+    },
+    {
+      "file": "white-throated-kingfisher/white_throated_kingfisher2.jpg",
+      "caption": "White-Throated Kingfisher, Rabindra Sarobar, Kolkata, India, May 2024"
+    },
+    {
+      "file": "white-throated-kingfisher/white_throated_kingfisher3.jpg",
+      "caption": "White-Throated Kingfisher, Rabindra Sarobar, Kolkata, India, May 2024"
+    },
+    {
+      "file": "white-throated-kingfisher/white_throated_kingfisher4.jpg",
+      "caption": "White-Throated Kingfisher, Rabindra Sarobar, Kolkata, India, May 2024"
+    },
+    {
+      "file": "white-throated-kingfisher/white_throated_kingfisher5.jpg",
+      "caption": "White-Throated Kingfisher, Rabindra Sarobar, Kolkata, India, May 2024"
+    },
+    {
+      "file": "white-throated-kingfisher/white_throated_kingfisher6.jpg",
+      "caption": "White-Throated Kingfisher"
+    },
+    {
+      "file": "white-throated-kingfisher/white_throated_kingfisher7.jpg",
+      "caption": "White-Throated Kingfisher"
+    },
+    {
+      "file": "white-throated-kingfisher/white_throated_kingfisher8.jpg",
+      "caption": "White-Throated Kingfisher, Rabindra Sarobar, Kolkata, India, Oct 2025"
+    },
+    {
+      "file": "white-throated-kingfisher/white_throated_kingfisher_top.jpg",
+      "caption": "White-Throated Kingfisher, Rabindra Sarobar, Kolkata, India, May 2024"
+    },
+    {
+      "file": "wild-turkey/wild_turkey1.jpg",
+      "caption": "Wild Turkey"
+    },
+    {
+      "file": "wild-turkey/wild_turkey2.jpg",
+      "caption": "Wild Turkey, UC Davis, CA, April 2025"
+    },
+    {
+      "file": "yellow-warbler/yellow_warbler1.jpg",
+      "caption": "Yellow Warbler, Ulistac, Santa Clara, May 2024"
+    },
+    {
+      "file": "yellow-warbler/yellow_warbler2.jpg",
+      "caption": "Yellow Warbler"
+    },
+    {
+      "file": "yellow-billed-cardinal/yellow_billed_cardinal1.jpg",
+      "caption": "Yellow-Billed Cardinal, Akaka Falls State Park, Honomu, Hawaii, July 2022"
+    },
+    {
+      "file": "yellow-billed-cardinal/yellow_billed_cardinal2.jpg",
+      "caption": "Yellow-Billed Cardinal"
+    },
+    {
+      "file": "yellow-billed-magpie/yellow_billed_magpie1.jpg",
+      "caption": "Yellow-Billed Magpie, Davis, CA"
+    },
+    {
+      "file": "yellow-footed-green-pigeon/yellow_footed_green_pigeon1.jpg",
+      "caption": "Yellow-Footed Green Pigeon, Rabindra Sarobar, Kolkata, India, Dec 2024"
+    },
+    {
+      "file": "yellow-footed-green-pigeon/yellow_footed_green_pigeon2.jpg",
+      "caption": "Yellow-Footed Green Pigeon"
+    },
+    {
+      "file": "zebra-dove/zebra_dove1.jpg",
+      "caption": "Zebra Dove, Kona Farmers Market, Kailua-Kona, Hawaii, July 2022"
+    },
+    {
+      "file": "zebra-dove/zebra_dove2.jpg",
+      "caption": "Zebra Dove, Honolulu, Hawaii, Jan 2023"
+    }
+  ]
+}

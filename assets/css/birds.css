@@ -1,0 +1,151 @@
+/* Styles for the generated bird pages (index, gallery overview, bird-group
+   pages, species). Pages are built by scripts/build_site.py from
+   assets/data/photos.json; edit that file, not the generated HTML. */
+
+/* ---------- Species jump list + sections (group pages, species.html) ---------- */
+.species-jumplist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  justify-content: center;
+  max-width: 1100px;
+  margin: 0 auto 10px;
+  padding: 0 20px;
+}
+.species-jumplist a {
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  font-family: var(--font-primary);
+  font-size: 12.5px;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+.species-jumplist a:hover {
+  color: var(--color-primary);
+}
+.species-jumplist a .count {
+  color: rgba(255, 255, 255, 0.3);
+}
+.species-section {
+  scroll-margin-top: 90px;
+  padding: 0 0 10px;
+}
+.species-section h3 {
+  color: #fff;
+  font-family: var(--font-secondary);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 24px;
+  border-bottom: 1px solid rgba(200, 149, 60, 0.25);
+  padding: 0 0 10px;
+  margin: 0 0 24px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.species-section h3 .species-count {
+  font-family: var(--font-primary);
+  font-style: normal;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+}
+.species-section h3 .species-group {
+  margin-left: auto;
+  font-family: var(--font-primary);
+  font-style: normal;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+.species-section h3 .species-group a {
+  color: rgba(255, 255, 255, 0.4);
+}
+.species-section h3 .species-group a:hover {
+  color: var(--color-primary);
+}
+
+/* ---------- Uniform grid (group pages, species.html) ----------
+   main.js tags tall images with --portrait, which main.css gives a tall,
+   letterboxed 9:16 box. Here every tile is 4:3: portraits are cropped to
+   fill (the full photo still opens in the lightbox). The default crop sits
+   slightly above centre; photos.json can set a per-photo "crop" (applied as
+   an inline object-position) to keep the bird's head in view. */
+#gallery.gallery--uniform .gallery-item.gallery-item--portrait {
+  aspect-ratio: 4 / 3;
+}
+#gallery.gallery--uniform .gallery-item.gallery-item--portrait img {
+  object-fit: cover;
+  object-position: center 35%;
+}
+
+/* ---------- Home page grid ----------
+   Portraits in the bottom block keep their own shape (~1236x1600 DSLR crop)
+   and fill the tile, instead of main.css's letterboxed 9:16 box. */
+#gallery.gallery--home .gallery-item.gallery-item--portrait {
+  aspect-ratio: 1236 / 1600;
+}
+#gallery.gallery--home .gallery-item.gallery-item--portrait img {
+  object-fit: cover;
+}
+/* Portraits marked "fill" in photos.json are cropped to the same 4:3 tile
+   as the landscape photos around them. */
+#gallery.gallery .gallery-item.gallery-item--fill {
+  aspect-ratio: 4 / 3;
+}
+#gallery.gallery .gallery-item.gallery-item--fill img {
+  object-fit: cover;
+}
+
+/* ---------- Bird-group overview cards (gallery.html) ---------- */
+.group-card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 2px;
+  background: #111;
+  aspect-ratio: 4 / 3;
+  color: #fff;
+}
+.group-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.group-card .group-card-text {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 60px 18px 16px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.5) 55%, rgba(0, 0, 0, 0) 100%);
+}
+.group-card h3 {
+  margin: 0 0 4px;
+  font-family: var(--font-secondary);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 22px;
+  color: #fff;
+}
+.group-card p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.75);
+}
+.group-card .group-card-count {
+  display: block;
+  margin-top: 6px;
+  font-size: 11.5px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+.group-card:hover img {
+  transform: scale(1.06);
+}
+.group-card:hover h3 {
+  color: var(--color-primary);
+}
