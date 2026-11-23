@@ -37,7 +37,8 @@ IMAGE_EXTS = (".jpg", ".jpeg", ".png")
 
 # Pages whose nav highlights a given top-level menu item.
 NAV_ACTIVE = {"index.html": "home", "about.html": "about", "catalog.html": "catalog",
-              "durgapuja2025.html": "misc", "kumortuli2026.html": "misc"}
+              "durgapuja2025.html": "misc", "kumortuli2026.html": "misc",
+              "durgapuja2026.html": "misc"}
 
 
 def natural_key(path):
@@ -150,6 +151,7 @@ def nav(active):
             <ul>
               <li><a href="durgapuja2025.html">Durga Puja 2025</a></li>
               <li><a href="kumortuli2026.html">Kumortuli 2026</a></li>
+              <li><a href="durgapuja2026.html">Durga Puja 2026</a></li>
             </ul>
           </li>
         </ul>
