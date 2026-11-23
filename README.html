@@ -68,6 +68,11 @@ the photo grid and the menu are generated; the rest of that page can be edited n
 refreshed on the hand-written pages.</p>
 <p>Photos live in <code>assets/img/gallery/&lt;species&gt;/</code>, e.g.
 <code>assets/img/gallery/greater-coucal/greater_coucal5.jpg</code>.</p>
+<p>To keep pages fast, the photo grids show small thumbnails (720&nbsp;px wide, in <code>assets/img/thumbs/</code>) and load
+the full photo only when it's clicked; images further down the page load as you scroll. The build creates and updates
+the thumbnails automatically for every page, including the hand-written Durga Puja, Kumortuli and Catalog pages, and
+deletes ones whose photo is gone. Don't edit <code>assets/img/thumbs/</code> by hand. If you add photos to a hand-written
+page, run <code>python3 scripts/build_site.py</code> afterwards so they get thumbnails too.</p>
 
 <h2>Adding new photos</h2>
 <p>Requires a Mac (the script uses the built-in <code>sips</code> and <code>mdls</code> tools) and Python 3.</p>

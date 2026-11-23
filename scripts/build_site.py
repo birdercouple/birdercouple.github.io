@@ -27,6 +27,7 @@ import json
 import os
 import re
 import struct
+import subprocess
 import sys
 
 SITE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -321,8 +322,104 @@ def build_index(home):
     write("index.html", s)
 
 
+# ---------------------------------------------------------------- page speed
+# Grid tiles show a small thumbnail; the full photo only loads when it's opened
+# in the lightbox (the <a href> keeps pointing at the original).
+THUMB_DIR = "assets/img/thumbs"      # mirrors assets/img/: thumbs/gallery/..., thumbs/misc/...
+THUMB_WIDTH = 720                    # ~2x a grid tile's on-screen width
+THUMB_QUALITY = 62
+MAIN_JS_VERSION = 3                  # bump when assets/js/main.js changes (cache-busting)
+FADE_DELAY_MS = 700                  # page fade-in delay (data-aos-delay on <main>)
+_size_cache = {}
+thumb_stats = {"made": 0}
+
+
+def size_of(rel):
+    if rel not in _size_cache:
+        _size_cache[rel] = image_size(os.path.join(SITE, rel))
+    return _size_cache[rel]
+
+
+def thumb_for(original):
+    """Path of the thumbnail for assets/img/<x>, creating/refreshing it if needed."""
+    rel = original[len("assets/img/"):]
+    thumb = f"{THUMB_DIR}/{os.path.splitext(rel)[0]}.jpg"
+    src_path, dst_path = os.path.join(SITE, original), os.path.join(SITE, thumb)
+    if not os.path.exists(dst_path) or os.path.getmtime(dst_path) < os.path.getmtime(src_path):
+        os.makedirs(os.path.dirname(dst_path), exist_ok=True)
+        w, _ = size_of(original)
+        cmd = ["sips", "-s", "format", "jpeg", "-s", "formatOptions", str(THUMB_QUALITY)]
+        if w > THUMB_WIDTH:
+            cmd += ["--resampleWidth", str(THUMB_WIDTH)]
+        subprocess.run(cmd + [src_path, "--out", dst_path], capture_output=True, check=True)
+        thumb_stats["made"] += 1
+    return thumb
+
+
+IMG_TAG = re.compile(r'<img src="(assets/img/(?:thumbs/)?(?:gallery|misc)/[^"]+)"([^>]*)>')
+TILE = re.compile(r'(<div class=")(gallery-item(?: [^"]*)?)(">\s*<img src="assets/img/(?:thumbs/)?((?:gallery|misc)/[^"]+)")')
+
+
+def speed_up(s):
+    """Thumbnails + lazy loading for photo <img>s, portrait tiles marked up front."""
+    def original_of(src):
+        if not src.startswith(THUMB_DIR + "/"):
+            return src
+        # thumbs are always .jpg; find the original whatever its extension
+        base = "assets/img/" + os.path.splitext(src[len(THUMB_DIR) + 1:])[0]
+        for ext in (".jpg", ".jpeg", ".png", ".JPG", ".JPEG", ".PNG"):
+            if os.path.exists(os.path.join(SITE, base + ext)):
+                return base + ext
+        return None
+
+    def img(m):
+        src, attrs = m.group(1), m.group(2)
+        orig = original_of(src)
+        if not orig or not os.path.exists(os.path.join(SITE, orig)):
+            return m.group(0)                       # leave unknown/missing images alone
+        if 'loading="' not in attrs:
+            attrs += ' loading="lazy"'
+        if 'decoding="' not in attrs:
+            attrs += ' decoding="async"'
+        return f'<img src="{thumb_for(orig)}"{attrs}>'
+
+    def tile(m):
+        classes, rel = m.group(2).split(), m.group(4)
+        path = f"assets/img/{rel}"
+        if not os.path.exists(os.path.join(SITE, path)):      # tile already points at a thumb
+            path = original_of(f"{THUMB_DIR}/{rel}")
+        if path and "gallery-item--portrait" not in classes:
+            w, h = size_of(path)
+            if h > w:
+                classes.insert(1, "gallery-item--portrait")
+        return m.group(1) + " ".join(classes) + m.group(3)
+
+    s = TILE.sub(tile, s)
+    s = IMG_TAG.sub(img, s)
+    s = re.sub(r'src="assets/js/main\.js(?:\?v=\d+)?"', f'src="assets/js/main.js?v={MAIN_JS_VERSION}"', s)
+    s = re.sub(r'(<main id="main" data-aos="fade" data-aos-delay=")\d+(")', rf"\g<1>{FADE_DELAY_MS}\2", s)
+    s = re.sub(r'(<section id="hero"[^>]*data-aos-delay=")\d+(")', rf"\g<1>{FADE_DELAY_MS}\2", s)
+    return s
+
+
+def prune_thumbs():
+    """Delete thumbnails whose original photo no longer exists."""
+    removed = 0
+    root = os.path.join(SITE, THUMB_DIR)
+    for dirpath, _, files in os.walk(root):
+        for fn in files:
+            if fn.startswith("."):
+                continue
+            rel = os.path.relpath(os.path.join(dirpath, fn), root)
+            base = os.path.join(SITE, "assets/img", os.path.splitext(rel)[0])
+            if not any(os.path.exists(base + e) for e in (".jpg", ".jpeg", ".png", ".JPG", ".JPEG", ".PNG")):
+                os.remove(os.path.join(dirpath, fn))
+                removed += 1
+    return removed
+
+
 def refresh_nav():
-    """Update the menu and the footer copyright year on every page, incl. hand-written ones."""
+    """Update the menu, footer year and image loading (thumbnails/lazy) on every page."""
     for fn in sorted(os.listdir(SITE)):
         if not fn.endswith(".html"):
             continue
@@ -335,7 +432,7 @@ def refresh_nav():
         s = s[:a] + nav(NAV_ACTIVE.get(fn, "gallery")) + s[b:]
         s = re.sub(r"Copyright 2020-\d{4} (<strong><span>Birder Couple</span></strong>\. All Rights Reserved)\.?",
                    rf"Copyright 2020-{datetime.date.today().year} \1.", s)
-        write(fn, s)
+        write(fn, speed_up(s))
 
 
 photos_by_species_global = {}
@@ -358,6 +455,8 @@ def main():
           f"({len(photos)} photos, {len(photos_by_species)} species, {len(home)} on the home page).")
     for g, slugs, n in built:
         print(f"  {g['slug']}.html: {len(slugs)} species, {n} photos")
+    removed = prune_thumbs()
+    print(f"Thumbnails: {thumb_stats['made']} created/updated" + (f", {removed} stale removed" if removed else ""))
     for n in notes:
         print("Note:", n)
 

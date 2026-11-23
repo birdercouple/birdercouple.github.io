@@ -12,16 +12,17 @@ document.addEventListener('DOMContentLoaded', () => {
   /**
    * Preloader
    */
+  // Open the curtain as soon as the page layout is ready (this handler runs on
+  // DOMContentLoaded) instead of waiting for every photo to download. The short
+  // delay lets the gold line finish growing so the opening animation still plays.
   const preloader = document.querySelector('#preloader');
   if (preloader) {
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        preloader.classList.add('loaded');
-      }, 1000);
-      setTimeout(() => {
-        preloader.remove();
-      }, 2000);
-    });
+    setTimeout(() => {
+      preloader.classList.add('loaded');
+    }, 600);
+    setTimeout(() => {
+      preloader.remove();
+    }, 1500);
   }
 
   /**
@@ -184,8 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mirror: false
     });
   }
-  window.addEventListener('load', () => {
-    aos_init();
-  });
+  // Start the fade-in right away (it used to wait for every image to load).
+  aos_init();
 
 });
